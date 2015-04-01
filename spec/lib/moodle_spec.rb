@@ -1,8 +1,8 @@
 require 'spec_helper'
 
 describe Moodle do
-  let(:url) { ENV['MOODLE_URL'] }
-  let(:token) { ENV['MOODLE_TOKEN'] }
+  let(:url) { ENV['MOODLE_URL'] || 'moodle.localhost' }
+  let(:token) { ENV['MOODLE_TOKEN'] || '' }
   let(:moodle) { Moodle.new(token, url) }
 
   describe '#site_info', :vcr => {
@@ -25,5 +25,9 @@ describe Moodle do
         expect(result['release']).to eq '2.8.3+ (Build: 20150212)'
       end
     end
+  end
+
+  describe 'courses' do
+    specify { expect(moodle.courses).to be_a Courses }
   end
 end
