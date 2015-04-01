@@ -1,0 +1,41 @@
+--- 
+recorded_with: VCR 2.9.3
+http_interactions: 
+- request: 
+    method: get
+    uri: http://elearning.bcanational.com/moodle/webservice/rest/server.php?moodlewsrestformat=json&wsfunction=core_webservice_get_site_info&wstoken=invalid_moodle_token
+    body: 
+      string: ""
+    headers: {}
+
+  response: 
+    status: 
+      code: 200
+      message: OK
+    headers: 
+      X-Powered-By: 
+      - PHP/5.4.28
+      Expires: 
+      - Thu, 01 Jan 1970 00:00:00 GMT
+      Server: 
+      - Apache
+      Transfer-Encoding: 
+      - chunked
+      Access-Control-Allow-Origin: 
+      - "*"
+      X-Frame-Options: 
+      - SAMEORIGIN
+      Content-Type: 
+      - application/json
+      Pragma: 
+      - no-cache
+      Accept-Ranges: 
+      - none
+      Cache-Control: 
+      - private, must-revalidate, pre-check=0, post-check=0, max-age=0
+      Date: 
+      - Tue, 31 Mar 2015 23:33:59 GMT
+    body: 
+      string: "{\"exception\":\"moodle_exception\",\"errorcode\":\"invalidtoken\",\"message\":\"Invalid token - token not found\"}"
+    http_version: 
+  recorded_at: Tue, 31 Mar 2015 23:32:21 GMT
