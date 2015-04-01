@@ -1,2 +1,2 @@
-# moddle
-Moddle Ruby Client
+# Moodle
+Moodle Ruby Client
