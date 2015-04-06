@@ -1,0 +1,41 @@
+--- 
+recorded_with: VCR 2.9.3
+http_interactions: 
+- request: 
+    method: post
+    uri: http://elearning.bcanational.com/moodle/webservice/rest/server.php?moodlewsrestformat=json&wsfunction=core_course_create_courses&wstoken=2ca731f3b767e24029d5e4e363093590
+    body: 
+      string: courses[0][fullname]=Test%20Course&courses[0][shortname]=TestC&courses[0][idnumber]=ExtRef&courses[0][categoryid]=5
+    headers: {}
+
+  response: 
+    status: 
+      code: 200
+      message: OK
+    headers: 
+      Server: 
+      - Apache
+      Cache-Control: 
+      - private, must-revalidate, pre-check=0, post-check=0, max-age=0
+      X-Powered-By: 
+      - PHP/5.4.28
+      Accept-Ranges: 
+      - none
+      Expires: 
+      - Thu, 01 Jan 1970 00:00:00 GMT
+      Transfer-Encoding: 
+      - chunked
+      Date: 
+      - Wed, 01 Apr 2015 21:58:37 GMT
+      Access-Control-Allow-Origin: 
+      - "*"
+      Content-Type: 
+      - application/json
+      Pragma: 
+      - no-cache
+      X-Frame-Options: 
+      - SAMEORIGIN
+    body: 
+      string: "[{\"id\":32,\"shortname\":\"TestC\"}]"
+    http_version: 
+  recorded_at: Wed, 01 Apr 2015 21:56:55 GMT
