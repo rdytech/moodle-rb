@@ -1,0 +1,41 @@
+--- 
+recorded_with: VCR 2.9.3
+http_interactions: 
+- request: 
+    method: get
+    uri: http://elearning.bcanational.com/moodle/webservice/rest/server.php?moodlewsrestformat=json&wsfunction=core_course_get_categories&wstoken=2ca731f3b767e24029d5e4e363093590
+    body: 
+      string: ""
+    headers: {}
+
+  response: 
+    status: 
+      code: 200
+      message: OK
+    headers: 
+      Date: 
+      - Tue, 07 Apr 2015 00:57:44 GMT
+      X-Powered-By: 
+      - PHP/5.4.28
+      Expires: 
+      - Thu, 01 Jan 1970 00:00:00 GMT
+      Transfer-Encoding: 
+      - chunked
+      X-Frame-Options: 
+      - SAMEORIGIN
+      Content-Type: 
+      - application/json
+      Access-Control-Allow-Origin: 
+      - "*"
+      Pragma: 
+      - no-cache
+      Accept-Ranges: 
+      - none
+      Server: 
+      - Apache
+      Cache-Control: 
+      - private, must-revalidate, pre-check=0, post-check=0, max-age=0
+    body: 
+      string: "[{\"id\":1,\"name\":\"Miscellaneous\",\"idnumber\":null,\"description\":\"\",\"descriptionformat\":1,\"parent\":0,\"sortorder\":10000,\"coursecount\":2,\"visible\":1,\"visibleold\":1,\"timemodified\":1399990921,\"depth\":1,\"path\":\"\\/1\",\"theme\":null},{\"id\":2,\"name\":\"BSB51107: Diploma of Management\",\"idnumber\":\"ML1IFH0115\",\"description\":\"\",\"descriptionformat\":1,\"parent\":0,\"sortorder\":20000,\"coursecount\":8,\"visible\":1,\"visibleold\":1,\"timemodified\":1423191045,\"depth\":1,\"path\":\"\\/2\",\"theme\":null},{\"id\":3,\"name\":\"CHC51308: Diploma of Education Support\",\"idnumber\":\"CHC51308\",\"description\":\"\",\"descriptionformat\":1,\"parent\":0,\"sortorder\":30000,\"coursecount\":8,\"visible\":1,\"visibleold\":1,\"timemodified\":1417470891,\"depth\":1,\"path\":\"\\/3\",\"theme\":null},{\"id\":4,\"name\":\"CHC50612: Diploma of Community Services Work\",\"idnumber\":\"CHC50612\",\"description\":\"\",\"descriptionformat\":1,\"parent\":0,\"sortorder\":40000,\"coursecount\":2,\"visible\":1,\"visibleold\":1,\"timemodified\":1426802345,\"depth\":1,\"path\":\"\\/4\",\"theme\":null},{\"id\":5,\"name\":\"Sams Test Category\",\"idnumber\":\"CAT101\",\"description\":\"A descriptive thing\",\"descriptionformat\":1,\"parent\":0,\"sortorder\":50000,\"coursecount\":2,\"visible\":1,\"visibleold\":1,\"timemodified\":1427783385,\"depth\":1,\"path\":\"\\/5\",\"theme\":null},{\"id\":6,\"name\":\"Test category\",\"idnumber\":\"\",\"description\":\"\",\"descriptionformat\":1,\"parent\":0,\"sortorder\":60000,\"coursecount\":0,\"visible\":1,\"visibleold\":1,\"timemodified\":1428368264,\"depth\":1,\"path\":\"\\/6\",\"theme\":null}]"
+    http_version: 
+  recorded_at: Tue, 07 Apr 2015 00:55:52 GMT
