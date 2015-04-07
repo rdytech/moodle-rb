@@ -12,11 +12,7 @@ class Courses
     response = self.class.get(
       '/webservice/rest/server.php',
       {
-        :query => {
-          :wsfunction => 'core_course_get_courses',
-          :moodlewsrestformat => 'json',
-          :wstoken => token
-        }
+        :query => Utility.query_hash('core_course_get_courses', token)
       }
     )
     response.parsed_response
@@ -33,11 +29,7 @@ class Courses
     response = self.class.post(
       '/webservice/rest/server.php',
       {
-        :query => {
-          :wsfunction => 'core_course_create_courses',
-          :moodlewsrestformat => 'json',
-          :wstoken => token
-        },
+        :query => Utility.query_hash('core_course_create_courses', token),
         :body => {
           :courses => {
             '0' => {
@@ -57,11 +49,7 @@ class Courses
     response = self.class.post(
       '/webservice/rest/server.php',
       {
-        :query => {
-          :wsfunction => 'core_course_get_courses',
-          :moodlewsrestformat => 'json',
-          :wstoken => token
-        },
+        :query => Utility.query_hash('core_course_get_courses', token),
         :body => {
           :options => {
             :ids => {
@@ -78,11 +66,7 @@ class Courses
     response = self.class.post(
       '/webservice/rest/server.php',
       {
-        :query => {
-          :wsfunction => 'core_course_delete_courses',
-          :moodlewsrestformat => 'json',
-          :wstoken => token
-        },
+        :query => Utility.query_hash('core_course_delete_courses', token),
         :body => {
           :courseids => {
             '0' => id
