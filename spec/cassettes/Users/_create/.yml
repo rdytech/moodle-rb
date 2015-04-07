@@ -1,0 +1,41 @@
+--- 
+recorded_with: VCR 2.9.3
+http_interactions: 
+- request: 
+    method: post
+    uri: http://elearning.bcanational.com/moodle/webservice/rest/server.php?moodlewsrestformat=json&wsfunction=core_user_create_users&wstoken=2ca731f3b767e24029d5e4e363093590
+    body: 
+      string: users[0][password]=Password123&users[0][firstname]=Austin&users[0][idnumber]=PAUST001&users[0][email]=austinp%40jobready.com.au&users[0][lastname]=Powers&users[0][username]=testuser
+    headers: {}
+
+  response: 
+    status: 
+      code: 200
+      message: OK
+    headers: 
+      Pragma: 
+      - no-cache
+      Transfer-Encoding: 
+      - chunked
+      Accept-Ranges: 
+      - none
+      X-Frame-Options: 
+      - SAMEORIGIN
+      Access-Control-Allow-Origin: 
+      - "*"
+      Date: 
+      - Tue, 07 Apr 2015 04:11:39 GMT
+      Server: 
+      - Apache
+      Content-Type: 
+      - application/json
+      X-Powered-By: 
+      - PHP/5.4.28
+      Cache-Control: 
+      - private, must-revalidate, pre-check=0, post-check=0, max-age=0
+      Expires: 
+      - Thu, 01 Jan 1970 00:00:00 GMT
+    body: 
+      string: "[{\"id\":85,\"username\":\"testuser\"}]"
+    http_version: 
+  recorded_at: Tue, 07 Apr 2015 04:09:48 GMT

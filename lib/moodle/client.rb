@@ -26,4 +26,8 @@ class Client
   def categories
     Categories.new(token, url)
   end
+
+  def users
+    Users.new(token, url)
+  end
 end

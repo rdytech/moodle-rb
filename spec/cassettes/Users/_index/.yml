@@ -1,0 +1,41 @@
+--- 
+http_interactions: 
+- request: 
+    method: get
+    uri: http://elearning.bcanational.com/moodle/webservice/rest/server.php?moodlewsrestformat=json&wsfunction=core_user_get_users&wstoken=2ca731f3b767e24029d5e4e363093590
+    body: 
+      string: criteria[0][key]=email&criteria[0][value]=%25
+    headers: {}
+
+  response: 
+    status: 
+      code: 200
+      message: OK
+    headers: 
+      Content-Type: 
+      - application/json
+      X-Powered-By: 
+      - PHP/5.4.28
+      X-Frame-Options: 
+      - SAMEORIGIN
+      Accept-Ranges: 
+      - none
+      Server: 
+      - Apache
+      Access-Control-Allow-Origin: 
+      - "*"
+      Transfer-Encoding: 
+      - chunked
+      Date: 
+      - Tue, 07 Apr 2015 04:18:23 GMT
+      Cache-Control: 
+      - private, must-revalidate, pre-check=0, post-check=0, max-age=0
+      Pragma: 
+      - no-cache
+      Expires: 
+      - Thu, 01 Jan 1970 00:00:00 GMT
+    body: 
+      string: "{\"exception\":\"invalid_parameter_exception\",\"errorcode\":\"invalidparameter\",\"message\":\"Invalid parameter value detected\",\"debuginfo\":\"Missing required key in single structure: criteria\"}"
+    http_version: 
+  recorded_at: Tue, 07 Apr 2015 04:16:31 GMT
+recorded_with: VCR 2.9.3
