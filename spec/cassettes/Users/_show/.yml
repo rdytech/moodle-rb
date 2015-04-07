@@ -1,0 +1,41 @@
+--- 
+recorded_with: VCR 2.9.3
+http_interactions: 
+- request: 
+    method: post
+    uri: http://elearning.bcanational.com/moodle/webservice/rest/server.php?moodlewsrestformat=json&wsfunction=core_user_get_users&wstoken=2ca731f3b767e24029d5e4e363093590
+    body: 
+      string: criteria[0][key]=id&criteria[0][value]=85
+    headers: {}
+
+  response: 
+    status: 
+      code: 200
+      message: OK
+    headers: 
+      Expires: 
+      - Thu, 01 Jan 1970 00:00:00 GMT
+      Accept-Ranges: 
+      - none
+      Access-Control-Allow-Origin: 
+      - "*"
+      Transfer-Encoding: 
+      - chunked
+      X-Frame-Options: 
+      - SAMEORIGIN
+      Content-Type: 
+      - application/json
+      Date: 
+      - Tue, 07 Apr 2015 04:13:21 GMT
+      X-Powered-By: 
+      - PHP/5.4.28
+      Server: 
+      - Apache
+      Pragma: 
+      - no-cache
+      Cache-Control: 
+      - private, must-revalidate, pre-check=0, post-check=0, max-age=0
+    body: 
+      string: "{\"users\":[{\"id\":85,\"username\":\"testuser\",\"firstname\":\"Austin\",\"lastname\":\"Powers\",\"fullname\":\"Austin Powers\",\"email\":\"austinp@jobready.com.au\",\"department\":\"\",\"idnumber\":\"PAUST001\",\"firstaccess\":0,\"lastaccess\":0,\"profileimageurlsmall\":\"http:\\/\\/elearning.bcanational.com\\/moodle\\/pluginfile.php\\/1669\\/user\\/icon\\/f2\",\"profileimageurl\":\"http:\\/\\/elearning.bcanational.com\\/moodle\\/pluginfile.php\\/1669\\/user\\/icon\\/f1\"}],\"warnings\":[]}"
+    http_version: 
+  recorded_at: Tue, 07 Apr 2015 04:11:29 GMT
