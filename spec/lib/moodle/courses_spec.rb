@@ -35,4 +35,17 @@ describe Courses do
       expect(result).to have_key 'shortname'
     end
   end
+
+  describe '#show', :vcr => {
+    :match_requests_on => [:headers], :record => :once
+  } do
+    let(:id) { 32 }
+    let(:result) { course_moodle.show(id) }
+
+    specify do
+      expect(result).to be_a Hash
+      expect(result['id']).to eq 32
+      expect(result['shortname']).to eq 'TestC'
+    end
+  end
 end

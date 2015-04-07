@@ -52,4 +52,25 @@ class Courses
     )
     response.parsed_response.first
   end
+
+  def show(id)
+    response = self.class.post(
+      '/webservice/rest/server.php',
+      {
+        :query => {
+          :wsfunction => 'core_course_get_courses',
+          :moodlewsrestformat => 'json',
+          :wstoken => token
+        },
+        :body => {
+          :options => {
+            :ids => {
+              '0' => id
+            }
+          }
+        }
+      }
+    )
+    response.parsed_response.first
+  end
 end
