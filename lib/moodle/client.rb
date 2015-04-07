@@ -13,11 +13,7 @@ class Client
     response = self.class.get(
       '/webservice/rest/server.php',
       {
-        :query => {
-          :wsfunction => 'core_webservice_get_site_info',
-          :moodlewsrestformat => 'json',
-          :wstoken => token
-        }
+        :query => Utility.query_hash('core_webservice_get_site_info', token)
       }
     )
     response.parsed_response

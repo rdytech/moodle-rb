@@ -13,11 +13,7 @@ class Categories
     response = self.class.get(
       '/webservice/rest/server.php',
       {
-        :query => {
-          :wsfunction => 'core_course_get_categories',
-          :moodlewsrestformat => 'json',
-          :wstoken => token
-        }
+        :query => Utility.query_hash('core_course_get_categories', token)
       }
     )
     response.parsed_response
@@ -37,11 +33,7 @@ class Categories
     response = self.class.post(
       '/webservice/rest/server.php',
       {
-        :query => {
-          :wsfunction => 'core_course_create_categories',
-          :moodlewsrestformat => 'json',
-          :wstoken => token
-        },
+        :query => Utility.query_hash('core_course_create_categories', token),
         :body => {
           :categories => {
             '0' => {
@@ -61,11 +53,7 @@ class Categories
     response = self.class.post(
       '/webservice/rest/server.php',
       {
-        :query => {
-          :wsfunction => 'core_course_get_categories',
-          :moodlewsrestformat => 'json',
-          :wstoken => token
-        },
+        :query => Utility.query_hash('core_course_get_categories', token),
         :body => {
           :criteria => {
             '0' => {
@@ -83,11 +71,7 @@ class Categories
     response = self.class.post(
       '/webservice/rest/server.php',
       {
-        :query => {
-          :wsfunction => 'core_course_delete_categories',
-          :moodlewsrestformat => 'json',
-          :wstoken => token
-        },
+        :query => Utility.query_hash('core_course_delete_categories', token),
         :body => {
           :categories => {
             '0' => {
