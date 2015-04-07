@@ -1,7 +1,8 @@
-class Courses
+class Categories
   include HTTParty
 
   attr_reader :token
+  ROOT_CATEGORY = 0
 
   def initialize(token, url)
     @token = token
@@ -13,7 +14,7 @@ class Courses
       '/webservice/rest/server.php',
       {
         :query => {
-          :wsfunction => 'core_course_get_courses',
+          :wsfunction => 'core_course_get_categories',
           :moodlewsrestformat => 'json',
           :wstoken => token
         }
@@ -23,28 +24,31 @@ class Courses
   end
 
   # required params:
-  # full_name, short_name
-  # parent_category
-  #   the parent category id inside which the new category will be created
+  # name
   # optional params:
+  # parent_category
+  #     the parent category id inside which the new category will be created
+  #     - set to nil for a root category
   # idnumber
-  #     the new course external reference
+  #     the new category idnumber
+  # description
+  #     the new category description
   def create(params)
     response = self.class.post(
       '/webservice/rest/server.php',
       {
         :query => {
-          :wsfunction => 'core_course_create_courses',
+          :wsfunction => 'core_course_create_categories',
           :moodlewsrestformat => 'json',
           :wstoken => token
         },
         :body => {
-          :courses => {
+          :categories => {
             '0' => {
-              :fullname => params[:full_name],
-              :shortname => params[:short_name],
-              :categoryid => params[:parent_category],
-              :idnumber => params[:idnumber]
+              :name => params[:name],
+              :parent => (params[:parent_category] || ROOT_CATEGORY),
+              :idnumber => params[:idnumber],
+              :description => params[:description]
             }
           }
         }
@@ -58,14 +62,15 @@ class Courses
       '/webservice/rest/server.php',
       {
         :query => {
-          :wsfunction => 'core_course_get_courses',
+          :wsfunction => 'core_course_get_categories',
           :moodlewsrestformat => 'json',
           :wstoken => token
         },
         :body => {
-          :options => {
-            :ids => {
-              '0' => id
+          :criteria => {
+            '0' => {
+              :key => 'id',
+              :value => id
             }
           }
         }
@@ -79,13 +84,16 @@ class Courses
       '/webservice/rest/server.php',
       {
         :query => {
-          :wsfunction => 'core_course_delete_courses',
+          :wsfunction => 'core_course_delete_categories',
           :moodlewsrestformat => 'json',
           :wstoken => token
         },
         :body => {
-          :courseids => {
-            '0' => id
+          :categories => {
+            '0' => {
+              :id => id,
+              :recursive => 1
+            }
           }
         }
       }

@@ -26,4 +26,8 @@ class Client
   def courses
     Courses.new(token, url)
   end
+
+  def categories
+    Categories.new(token, url)
+  end
 end
