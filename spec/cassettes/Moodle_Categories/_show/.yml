@@ -1,0 +1,41 @@
+--- 
+recorded_with: VCR 2.9.3
+http_interactions: 
+- request: 
+    method: post
+    uri: http://elearning.bcanational.com/moodle/webservice/rest/server.php?moodlewsrestformat=json&wsfunction=core_course_get_categories&wstoken=2ca731f3b767e24029d5e4e363093590
+    body: 
+      string: criteria[0][key]=id&criteria[0][value]=12
+    headers: {}
+
+  response: 
+    status: 
+      code: 200
+      message: OK
+    headers: 
+      Transfer-Encoding: 
+      - chunked
+      Accept-Ranges: 
+      - none
+      Date: 
+      - Wed, 08 Apr 2015 07:48:06 GMT
+      X-Powered-By: 
+      - PHP/5.4.28
+      X-Frame-Options: 
+      - SAMEORIGIN
+      Pragma: 
+      - no-cache
+      Server: 
+      - Apache
+      Access-Control-Allow-Origin: 
+      - "*"
+      Expires: 
+      - Thu, 01 Jan 1970 00:00:00 GMT
+      Content-Type: 
+      - application/json
+      Cache-Control: 
+      - private, must-revalidate, pre-check=0, post-check=0, max-age=0
+    body: 
+      string: "[{\"id\":12,\"name\":\"Test category\",\"idnumber\":\"\",\"description\":\"\",\"descriptionformat\":1,\"parent\":0,\"sortorder\":80000,\"coursecount\":0,\"visible\":1,\"visibleold\":1,\"timemodified\":1428479162,\"depth\":1,\"path\":\"\\/12\",\"theme\":null}]"
+    http_version: 
+  recorded_at: Wed, 08 Apr 2015 07:46:16 GMT

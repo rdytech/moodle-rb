@@ -1,9 +1,10 @@
 lib = File.expand_path('../lib', __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
+require 'moodle/version'
 
 Gem::Specification.new do |spec|
   spec.name          = 'moodle'
-  spec.version       = '0.0.1'
+  spec.version       = Moodle::VERSION
   spec.authors       = ['Sam Giffney']
   spec.email         = ['samg@jobready.com.au']
   spec.summary       = %q{ Interaction with Moodle API }

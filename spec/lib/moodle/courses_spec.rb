@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe Courses do
+describe Moodle::Courses do
   let(:url) { ENV['MOODLE_URL'] || 'moodle.localhost' }
   let(:token) { ENV['MOODLE_TOKEN'] || '' }
   let(:course_moodle) { Moodle.new(token, url).courses }
@@ -22,9 +22,9 @@ describe Courses do
     let(:params) do
       {
         :full_name => 'Test Course',
-        :short_name => 'TestC',
+        :short_name => 'TestC1',
         :parent_category => 5,
-        :idnumber => 'ExtRef'
+        :idnumber => 'ExtRef1'
       }
     end
     let(:result) { course_moodle.create(params) }
@@ -39,12 +39,12 @@ describe Courses do
   describe '#show', :vcr => {
     :match_requests_on => [:headers], :record => :once
   } do
-    let(:id) { 32 }
+    let(:id) { 42 }
     let(:result) { course_moodle.show(id) }
 
     specify do
       expect(result).to be_a Hash
-      expect(result['id']).to eq 32
+      expect(result['id']).to eq 42
       expect(result['shortname']).to eq 'TestC'
     end
   end
@@ -52,7 +52,7 @@ describe Courses do
   describe '#destroy', :vcr => {
     :match_requests_on => [:headers], :record => :once
   } do
-    let(:id) { 32 }
+    let(:id) { 43 }
     let(:result) { course_moodle.destroy(id) }
 
     specify do

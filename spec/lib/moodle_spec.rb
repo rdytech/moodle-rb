@@ -5,29 +5,7 @@ describe Moodle do
   let(:token) { ENV['MOODLE_TOKEN'] || '' }
   let(:moodle) { Moodle.new(token, url) }
 
-  describe '#site_info', :vcr => {
-    :match_requests_on => [:body, :headers], :record => :once
-  } do
-    let(:result) { moodle.site_info }
-
-    context 'when invalid token' do
-      let(:token) { 'invalid_moodle_token' }
-
-      specify do
-        expect(result).to be_a Hash
-        expect(result['errorcode']).to eq 'invalidtoken'
-      end
-    end
-
-    context 'when valid token' do
-      specify do
-        expect(result).to be_a Hash
-        expect(result['release']).to eq '2.8.3+ (Build: 20150212)'
-      end
-    end
-  end
-
-  describe 'courses' do
-    specify { expect(moodle.courses).to be_a Courses }
+  describe 'new' do
+    specify { expect(moodle).to be_a Moodle::Client }
   end
 end

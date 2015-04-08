@@ -1,0 +1,41 @@
+--- 
+recorded_with: VCR 2.9.3
+http_interactions: 
+- request: 
+    method: post
+    uri: http://elearning.bcanational.com/moodle/webservice/rest/server.php?moodlewsrestformat=json&wsfunction=core_enrol_get_enrolled_users&wstoken=2ca731f3b767e24029d5e4e363093590
+    body: 
+      string: courseid=30
+    headers: {}
+
+  response: 
+    status: 
+      code: 200
+      message: OK
+    headers: 
+      Access-Control-Allow-Origin: 
+      - "*"
+      Transfer-Encoding: 
+      - chunked
+      Date: 
+      - Wed, 08 Apr 2015 07:46:05 GMT
+      X-Powered-By: 
+      - PHP/5.4.28
+      Expires: 
+      - Thu, 01 Jan 1970 00:00:00 GMT
+      Pragma: 
+      - no-cache
+      Content-Type: 
+      - application/json
+      X-Frame-Options: 
+      - SAMEORIGIN
+      Accept-Ranges: 
+      - none
+      Server: 
+      - Apache
+      Cache-Control: 
+      - private, must-revalidate, pre-check=0, post-check=0, max-age=0
+    body: 
+      string: "[{\"id\":77,\"username\":\"samg101\",\"firstname\":\"Sam\",\"lastname\":\"Giffney\",\"fullname\":\"Sam Giffney\",\"email\":\"samg@jobready.com.au\",\"department\":\"\",\"idnumber\":\"PARTY101\",\"firstaccess\":0,\"lastaccess\":0,\"profileimageurlsmall\":\"http:\\/\\/elearning.bcanational.com\\/moodle\\/pluginfile.php\\/1631\\/user\\/icon\\/f2\",\"profileimageurl\":\"http:\\/\\/elearning.bcanational.com\\/moodle\\/pluginfile.php\\/1631\\/user\\/icon\\/f1\",\"groups\":[],\"roles\":[{\"roleid\":5,\"name\":\"\",\"shortname\":\"student\",\"sortorder\":0}],\"enrolledcourses\":[{\"id\":21,\"fullname\":\"Test course: XS\",\"shortname\":\"JobReady19012015\"},{\"id\":30,\"fullname\":\"Sams Test Course\",\"shortname\":\"SAMTC\"}]},{\"id\":86,\"username\":\"testuser\",\"firstname\":\"Austin\",\"lastname\":\"Powers\",\"fullname\":\"Austin Powers\",\"email\":\"austinp@jobready.com.au\",\"department\":\"\",\"idnumber\":\"PAUST001\",\"firstaccess\":1428383584,\"lastaccess\":1428389506,\"profileimageurlsmall\":\"http:\\/\\/elearning.bcanational.com\\/moodle\\/pluginfile.php\\/1671\\/user\\/icon\\/f2\",\"profileimageurl\":\"http:\\/\\/elearning.bcanational.com\\/moodle\\/pluginfile.php\\/1671\\/user\\/icon\\/f1\",\"groups\":[],\"roles\":[{\"roleid\":5,\"name\":\"\",\"shortname\":\"student\",\"sortorder\":0}],\"enrolledcourses\":[{\"id\":30,\"fullname\":\"Sams Test Course\",\"shortname\":\"SAMTC\"}]}]"
+    http_version: 
+  recorded_at: Wed, 08 Apr 2015 07:44:14 GMT
