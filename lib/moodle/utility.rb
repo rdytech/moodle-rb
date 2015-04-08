@@ -8,6 +8,11 @@ module Moodle
           :wstoken => token
         }
       end
+
+      def error_response?(response)
+        response && response.parsed_response.is_a?(Hash) &&
+          response.parsed_response.has_key?('exception')
+      end
     end
   end
 end

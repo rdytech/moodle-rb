@@ -34,6 +34,24 @@ describe Moodle::Courses do
       expect(result).to have_key 'id'
       expect(result).to have_key 'shortname'
     end
+
+    context 'when validation fails' do
+      let(:params) do
+        {
+          :full_name => 'Test Course',
+          :short_name => 'TestC1',
+          :parent_category => 5,
+          :idnumber => 'ExtRef'
+        }
+      end
+
+      specify do
+        expect{ result }.to raise_error(
+          Moodle::MoodleError,
+          'ID number is already used for another course (ExtRef)'
+        )
+      end
+    end
   end
 
   describe '#show', :vcr => {

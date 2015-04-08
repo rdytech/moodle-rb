@@ -25,7 +25,7 @@ module Moodle
     #   the parent category id inside which the new category will be created
     # optional params:
     # idnumber
-    #     the new course external reference
+    #     the new course external reference. must be unique
     def create(params)
       response = self.class.post(
         '/webservice/rest/server.php',
@@ -43,7 +43,11 @@ module Moodle
           }
         }
       )
-      response.parsed_response.first
+      if Utility.error_response?(response)
+        raise MoodleError.new(response.parsed_response)
+      else
+        response.parsed_response.first
+      end
     end
 
     def show(id)

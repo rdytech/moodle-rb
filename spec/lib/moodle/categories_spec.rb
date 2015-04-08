@@ -31,6 +31,22 @@ describe Moodle::Categories do
       expect(result).to have_key 'id'
       expect(result).to have_key 'name'
     end
+
+    context 'when validation fails' do
+      let(:params) do
+        {
+          :name => 'Test category',
+          :idnumber => 'CAT101'
+        }
+      end
+
+      specify do
+        expect{ result }.to raise_error(
+          Moodle::MoodleError,
+          'ID number is already used for another category'
+        )
+      end
+    end
   end
 
   describe '#show', :vcr => {

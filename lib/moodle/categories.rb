@@ -27,7 +27,7 @@ module Moodle
     #     the parent category id inside which the new category will be created
     #     - set to nil for a root category
     # idnumber
-    #     the new category idnumber
+    #     the new category external reference. must be unique
     # description
     #     the new category description
     def create(params)
@@ -47,7 +47,11 @@ module Moodle
           }
         }
       )
-      response.parsed_response.first
+      if Utility.error_response?(response)
+        raise MoodleError.new(response.parsed_response)
+      else
+        response.parsed_response.first
+      end
     end
 
     def show(id)
