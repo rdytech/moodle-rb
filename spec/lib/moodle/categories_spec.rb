@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe Categories do
+describe Moodle::Categories do
   let(:url) { ENV['MOODLE_URL'] || 'moodle.localhost' }
   let(:token) { ENV['MOODLE_TOKEN'] || '' }
   let(:category_moodle) { Moodle.new(token, url).categories }
@@ -36,12 +36,12 @@ describe Categories do
   describe '#show', :vcr => {
     :match_requests_on => [:headers], :record => :once
   } do
-    let(:id) { 6 }
+    let(:id) { 12 }
     let(:result) { category_moodle.show(id) }
 
     specify do
       expect(result).to be_a Hash
-      expect(result['id']).to eq 6
+      expect(result['id']).to eq 12
       expect(result['name']).to eq 'Test category'
     end
   end
@@ -49,7 +49,7 @@ describe Categories do
   describe '#destroy', :vcr => {
     :match_requests_on => [:headers], :record => :once
   } do
-    let(:id) { 6 }
+    let(:id) { 12 }
     let(:result) { category_moodle.destroy(id) }
 
     specify do

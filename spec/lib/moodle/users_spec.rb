@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe Users do
+describe Moodle::Users do
   let(:url) { ENV['MOODLE_URL'] || 'moodle.localhost' }
   let(:token) { ENV['MOODLE_TOKEN'] || '' }
   let(:user_moodle) { Moodle.new(token, url).users }
@@ -10,12 +10,12 @@ describe Users do
   } do
     let(:params) do
       {
-        :username => 'testuser',
+        :username => 'testuser1',
         :password => 'Password123',
         :firstname => 'Austin',
         :lastname => 'Powers',
-        :email => 'austinp@jobready.com.au',
-        :idnumber => 'PAUST001'
+        :email => 'austinp1@jobready.com.au',
+        :idnumber => 'PAUST002'
       }
     end
     let(:result) { user_moodle.create(params) }
@@ -23,27 +23,27 @@ describe Users do
     specify do
       expect(result).to be_a Hash
       expect(result).to have_key 'username'
-      expect(result['id']).to eq 85
+      expect(result['id']).to eq 87
     end
   end
 
   describe '#show', :vcr => {
     :match_requests_on => [:headers], :record => :once
   } do
-    let(:id) { 85 }
+    let(:id) { 87 }
     let(:result) { user_moodle.show(id) }
 
     specify do
       expect(result).to be_a Hash
-      expect(result['id']).to eq 85
-      expect(result['username']).to eq 'testuser'
+      expect(result['id']).to eq 87
+      expect(result['username']).to eq 'testuser1'
     end
   end
 
   describe '#destroy', :vcr => {
     :match_requests_on => [:headers], :record => :once
   } do
-    let(:id) { 85 }
+    let(:id) { 87 }
     let(:result) { user_moodle.destroy(id) }
 
     specify do

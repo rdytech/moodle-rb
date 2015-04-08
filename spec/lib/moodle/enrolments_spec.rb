@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe Enrolments do
+describe Moodle::Enrolments do
   let(:url) { ENV['MOODLE_URL'] || 'moodle.localhost' }
   let(:token) { ENV['MOODLE_TOKEN'] || '' }
   let(:enrolment_moodle) { Moodle.new(token, url).enrolments }
