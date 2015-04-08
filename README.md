@@ -81,3 +81,31 @@ moodle.categories.destroy(6)
 
 => true
 ```
+
+### Enrolments
+
+Create an enrolment
+```
+moodle.enrolments.create(
+  :user_id => 86,
+  :course_id => 30
+)
+
+=> true
+```
+
+View enrolled users by course
+```
+course_id = 30
+moodle.courses.enrolled_users(course_id)
+
+[{"roles"=>[{"name"=>"", "shortname"=>"student", "sortorder"=>0, "roleid"=>5}], "profileimageurlsmall"=>"moodle/pluginfile.php/1671/user/icon/f2", "groups"=>[], "username"=>"testuser", "id"=>86, "lastaccess"=>1428389506, "fullname"=>"Austin Powers", "enrolledcourses"=>[{"id"=>30, "shortname"=>"MyC", "fullname"=>"My Course"}], "idnumber"=>"PAUST001", "firstaccess"=>1428383584, "lastname"=>"Powers", "email"=>"austinp@jobready.com.au", "department"=>"", "profileimageurl"=>"moodle/pluginfile.php/1671/user/icon/f1", "firstname"=>"Austin"}]
+```
+
+View enrolled courses by user
+```
+user_id = 86
+moodle.users.enrolled_courses(user_id)
+
+[{"shortname"=>"MyC", "visible"=>1, "enrolledusercount"=>2, "id"=>30, "idnumber"=>"ExtRef", "fullname"=>"My Course"}]
+```

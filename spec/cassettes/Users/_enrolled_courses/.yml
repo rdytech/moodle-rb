@@ -1,0 +1,41 @@
+--- 
+http_interactions: 
+- request: 
+    method: post
+    uri: http://elearning.bcanational.com/moodle/webservice/rest/server.php?moodlewsrestformat=json&wsfunction=core_enrol_get_users_courses&wstoken=2ca731f3b767e24029d5e4e363093590
+    body: 
+      string: userid=86
+    headers: {}
+
+  response: 
+    status: 
+      code: 200
+      message: OK
+    headers: 
+      X-Powered-By: 
+      - PHP/5.4.28
+      Pragma: 
+      - no-cache
+      Accept-Ranges: 
+      - none
+      X-Frame-Options: 
+      - SAMEORIGIN
+      Expires: 
+      - Thu, 01 Jan 1970 00:00:00 GMT
+      Access-Control-Allow-Origin: 
+      - "*"
+      Transfer-Encoding: 
+      - chunked
+      Server: 
+      - Apache
+      Date: 
+      - Tue, 07 Apr 2015 07:13:26 GMT
+      Content-Type: 
+      - application/json
+      Cache-Control: 
+      - private, must-revalidate, pre-check=0, post-check=0, max-age=0
+    body: 
+      string: "[{\"id\":30,\"shortname\":\"SAMTC\",\"fullname\":\"Sams Test Course\",\"enrolledusercount\":2,\"idnumber\":\"COU101\",\"visible\":1}]"
+    http_version: 
+  recorded_at: Tue, 07 Apr 2015 07:11:35 GMT
+recorded_with: VCR 2.9.3

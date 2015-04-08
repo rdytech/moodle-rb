@@ -60,4 +60,17 @@ class Users
     )
     response.parsed_response.nil?
   end
+
+  def enrolled_courses(user_id)
+    response = self.class.post(
+      '/webservice/rest/server.php',
+      {
+        :query => Utility.query_hash('core_enrol_get_users_courses', token),
+        :body => {
+          :userid => user_id
+        }
+      }
+    )
+    response.parsed_response
+  end
 end

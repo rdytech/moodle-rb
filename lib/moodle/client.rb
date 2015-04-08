@@ -30,4 +30,8 @@ class Client
   def users
     Users.new(token, url)
   end
+
+  def enrolments
+    Enrolments.new(token, url)
+  end
 end
