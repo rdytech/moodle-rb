@@ -2,6 +2,7 @@ require 'httparty'
 require 'moodle/client'
 require 'moodle/courses'
 require 'moodle/categories'
+require 'moodle/enrolments'
 require 'moodle/utility'
 require 'moodle/users'
 

@@ -50,4 +50,17 @@ describe Users do
       expect(result).to eq true
     end
   end
+
+  describe '#enrolled_courses', :vcr => {
+    :match_requests_on => [:headers], :record => :once
+  } do
+    let(:user_id) { 86 }
+    let(:result) { user_moodle.enrolled_courses(user_id) }
+    let(:enrolment) { result.first }
+
+    specify do
+      expect(result).to be_a Array
+      expect(enrolment).to have_key 'shortname'
+    end
+  end
 end
