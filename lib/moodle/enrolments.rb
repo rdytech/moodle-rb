@@ -28,7 +28,11 @@ module Moodle
           }
         }
       )
-      response.code == 200 && response.parsed_response.nil?
+      if Utility.error_response?(response)
+        raise MoodleError.new(response.parsed_response)
+      else
+        response.code == 200 && response.parsed_response.nil?
+      end
     end
   end
 end

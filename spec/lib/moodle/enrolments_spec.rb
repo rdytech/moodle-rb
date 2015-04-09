@@ -19,5 +19,21 @@ describe Moodle::Enrolments do
     specify do
       expect(result).to eq true
     end
+
+    context 'when user or course id is invalid' do
+      let(:params) do
+        {
+          :user_id => 9999,
+          :course_id => 9999
+        }
+      end
+
+      specify do
+        expect{ result }.to raise_error(
+          Moodle::MoodleError,
+          'Invalid parameter value detected'
+        )
+      end
+    end
   end
 end

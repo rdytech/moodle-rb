@@ -26,7 +26,11 @@ module Moodle
           }
         }
       )
-      response.parsed_response.first
+      if Utility.error_response?(response)
+        raise MoodleError.new(response.parsed_response)
+      else
+        response.parsed_response.first
+      end
     end
 
     def show(id)
