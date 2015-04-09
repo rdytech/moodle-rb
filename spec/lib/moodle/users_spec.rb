@@ -25,6 +25,21 @@ describe Moodle::Users do
       expect(result).to have_key 'username'
       expect(result['id']).to eq 87
     end
+
+    context 'when missing required parameters' do
+      let(:params) do
+        {
+          :username => 'testuser1'
+        }
+      end
+
+      specify do
+        expect{ result }.to raise_error(
+          Moodle::MoodleError,
+          'Invalid parameter value detected'
+        )
+      end
+    end
   end
 
   describe '#show', :vcr => {
