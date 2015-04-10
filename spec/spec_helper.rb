@@ -22,4 +22,4 @@ VCR.configure do |c|
   c.configure_rspec_metadata!
 end
 
-require File.expand_path('../../lib/moodle.rb', __FILE__)
+require File.expand_path('../../lib/moodle_rb.rb', __FILE__)

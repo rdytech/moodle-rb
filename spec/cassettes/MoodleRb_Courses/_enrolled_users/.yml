@@ -1,0 +1,75 @@
+--- 
+recorded_with: VCR 2.9.3
+http_interactions: 
+- request: 
+    method: post
+    uri: http://localhost:8888/moodle28/webservice/rest/server.php?moodlewsrestformat=json&wsfunction=enrol_manual_enrol_users&wstoken=60fc9c9415259404795094957e4ab32f
+    body: 
+      string: enrolments[0][userid]=3&enrolments[0][courseid]=8&enrolments[0][roleid]=5
+    headers: {}
+
+  response: 
+    status: 
+      code: 200
+      message: OK
+    headers: 
+      Accept-Ranges: 
+      - none
+      Content-Type: 
+      - application/json
+      Content-Length: 
+      - "4"
+      Date: 
+      - Sun, 12 Apr 2015 00:58:18 GMT
+      Cache-Control: 
+      - private, must-revalidate, pre-check=0, post-check=0, max-age=0
+      Expires: 
+      - Thu, 01 Jan 1970 00:00:00 GMT
+      Pragma: 
+      - no-cache
+      Access-Control-Allow-Origin: 
+      - "*"
+      Server: 
+      - Apache/2.2.29 (Unix) mod_fastcgi/2.4.6 mod_wsgi/3.4 Python/2.7.8 PHP/5.6.2 mod_ssl/2.2.29 OpenSSL/0.9.8zd DAV/2 mod_perl/2.0.8 Perl/v5.20.0
+      X-Powered-By: 
+      - PHP/5.6.2
+    body: 
+      string: "null"
+    http_version: 
+  recorded_at: Sun, 12 Apr 2015 00:58:18 GMT
+- request: 
+    method: post
+    uri: http://localhost:8888/moodle28/webservice/rest/server.php?moodlewsrestformat=json&wsfunction=core_enrol_get_enrolled_users&wstoken=60fc9c9415259404795094957e4ab32f
+    body: 
+      string: courseid=8
+    headers: {}
+
+  response: 
+    status: 
+      code: 200
+      message: OK
+    headers: 
+      Accept-Ranges: 
+      - none
+      Content-Type: 
+      - application/json
+      Content-Length: 
+      - "556"
+      Date: 
+      - Sun, 12 Apr 2015 00:58:18 GMT
+      Cache-Control: 
+      - private, must-revalidate, pre-check=0, post-check=0, max-age=0
+      Expires: 
+      - Thu, 01 Jan 1970 00:00:00 GMT
+      Pragma: 
+      - no-cache
+      Access-Control-Allow-Origin: 
+      - "*"
+      Server: 
+      - Apache/2.2.29 (Unix) mod_fastcgi/2.4.6 mod_wsgi/3.4 Python/2.7.8 PHP/5.6.2 mod_ssl/2.2.29 OpenSSL/0.9.8zd DAV/2 mod_perl/2.0.8 Perl/v5.20.0
+      X-Powered-By: 
+      - PHP/5.6.2
+    body: 
+      string: "[{\"id\":3,\"firstname\":\"- Test\",\"lastname\":\"-\",\"fullname\":\"- Test -\",\"email\":\"test@localhost\",\"firstaccess\":1405378463,\"lastaccess\":1405379119,\"description\":\"\",\"descriptionformat\":1,\"city\":\"Somewhere\",\"country\":\"AU\",\"profileimageurlsmall\":\"http:\\/\\/localhost:8888\\/moodle28\\/pluginfile.php\\/15\\/user\\/icon\\/f2\",\"profileimageurl\":\"http:\\/\\/localhost:8888\\/moodle28\\/pluginfile.php\\/15\\/user\\/icon\\/f1\",\"groups\":[],\"roles\":[{\"roleid\":5,\"name\":\"\",\"shortname\":\"student\",\"sortorder\":0}],\"enrolledcourses\":[{\"id\":8,\"fullname\":\"Test Course\",\"shortname\":\"TestC1\"}]}]"
+    http_version: 
+  recorded_at: Sun, 12 Apr 2015 00:58:18 GMT
