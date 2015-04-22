@@ -1,0 +1,39 @@
+--- 
+http_interactions: 
+- request: 
+    method: post
+    uri: http://localhost:8888/moodle28/webservice/rest/server.php?moodlewsrestformat=json&wsfunction=core_grades_get_grades&wstoken=60fc9c9415259404795094957e4ab32f
+    body: 
+      string: courseid=8&userids[0]=5
+    headers: {}
+
+  response: 
+    status: 
+      code: 200
+      message: OK
+    headers: 
+      Content-Length: 
+      - "1192"
+      Server: 
+      - Apache/2.2.29 (Unix) mod_fastcgi/2.4.6 mod_wsgi/3.4 Python/2.7.8 PHP/5.6.2 mod_ssl/2.2.29 OpenSSL/0.9.8zd DAV/2 mod_perl/2.0.8 Perl/v5.20.0
+      Expires: 
+      - Thu, 01 Jan 1970 00:00:00 GMT
+      Cache-Control: 
+      - private, must-revalidate, pre-check=0, post-check=0, max-age=0
+      Pragma: 
+      - no-cache
+      Content-Type: 
+      - application/json
+      Accept-Ranges: 
+      - none
+      Date: 
+      - Wed, 22 Apr 2015 23:29:46 GMT
+      X-Powered-By: 
+      - PHP/5.6.2
+      Access-Control-Allow-Origin: 
+      - "*"
+    body: 
+      string: "{\"items\":[{\"activityid\":\"course\",\"itemnumber\":0,\"scaleid\":0,\"name\":\"Course total\",\"grademin\":0,\"grademax\":100,\"gradepass\":0,\"locked\":0,\"hidden\":0,\"grades\":[{\"userid\":5,\"grade\":85,\"locked\":0,\"hidden\":0,\"overridden\":0,\"feedback\":null,\"feedbackformat\":0,\"usermodified\":null,\"datesubmitted\":null,\"dategraded\":1428807511,\"str_grade\":\"85.00\",\"str_long_grade\":\"85.00 \\/ 100.00\",\"str_feedback\":\"\"}]},{\"activityid\":\"13\",\"itemnumber\":0,\"scaleid\":0,\"name\":\"TestAssignment\",\"grademin\":0,\"grademax\":100,\"gradepass\":0,\"locked\":0,\"hidden\":0,\"grades\":[{\"userid\":5,\"grade\":90,\"locked\":0,\"hidden\":0,\"overridden\":0,\"feedback\":\"<p>Good<\\/p>\",\"feedbackformat\":1,\"usermodified\":2,\"datesubmitted\":null,\"dategraded\":1428801869,\"str_grade\":\"90.00\",\"str_long_grade\":\"90.00 \\/ 100.00\",\"str_feedback\":\"<p>Good<\\/p>\"}]},{\"activityid\":\"14\",\"itemnumber\":0,\"scaleid\":0,\"name\":\"Topic 1 Assignment Test\",\"grademin\":0,\"grademax\":100,\"gradepass\":0,\"locked\":0,\"hidden\":0,\"grades\":[{\"userid\":5,\"grade\":80,\"locked\":0,\"hidden\":0,\"overridden\":0,\"feedback\":null,\"feedbackformat\":1,\"usermodified\":2,\"datesubmitted\":null,\"dategraded\":1428807511,\"str_grade\":\"80.00\",\"str_long_grade\":\"80.00 \\/ 100.00\",\"str_feedback\":\"\"}]}],\"outcomes\":[]}"
+    http_version: 
+  recorded_at: Wed, 22 Apr 2015 23:29:46 GMT
+recorded_with: VCR 2.9.3
