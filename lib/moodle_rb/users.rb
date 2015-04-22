@@ -1,6 +1,7 @@
 module MoodleRb
   class Users
     include HTTParty
+    include Utility
 
     attr_reader :token
 
@@ -18,7 +19,7 @@ module MoodleRb
       response = self.class.post(
         '/webservice/rest/server.php',
         {
-          :query => Utility.query_hash('core_user_create_users', token),
+          :query => query_hash('core_user_create_users', token),
           :body => {
             :users => {
               '0' => params
@@ -26,7 +27,7 @@ module MoodleRb
           }
         }
       )
-      if Utility.error_response?(response)
+      if error_response?(response)
         raise MoodleError.new(response.parsed_response)
       else
         response.parsed_response.first
@@ -37,7 +38,7 @@ module MoodleRb
       response = self.class.post(
         '/webservice/rest/server.php',
         {
-          :query => Utility.query_hash('core_user_get_users', token),
+          :query => query_hash('core_user_get_users', token),
           :body => {
             :criteria => {
               '0' => {
@@ -55,7 +56,7 @@ module MoodleRb
       response = self.class.post(
         '/webservice/rest/server.php',
         {
-          :query => Utility.query_hash('core_user_delete_users', token),
+          :query => query_hash('core_user_delete_users', token),
           :body => {
             :userids => {
               '0' => id
@@ -70,7 +71,7 @@ module MoodleRb
       response = self.class.post(
         '/webservice/rest/server.php',
         {
-          :query => Utility.query_hash('core_enrol_get_users_courses', token),
+          :query => query_hash('core_enrol_get_users_courses', token),
           :body => {
             :userid => user_id
           }

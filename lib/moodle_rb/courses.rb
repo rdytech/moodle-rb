@@ -1,6 +1,7 @@
 module MoodleRb
   class Courses
     include HTTParty
+    include Utility
 
     attr_reader :token
 
@@ -13,7 +14,7 @@ module MoodleRb
       response = self.class.get(
         '/webservice/rest/server.php',
         {
-          :query => Utility.query_hash('core_course_get_courses', token)
+          :query => query_hash('core_course_get_courses', token)
         }
       )
       response.parsed_response
@@ -32,7 +33,7 @@ module MoodleRb
       response = self.class.post(
         '/webservice/rest/server.php',
         {
-          :query => Utility.query_hash('core_course_create_courses', token),
+          :query => query_hash('core_course_create_courses', token),
           :body => {
             :courses => {
               '0' => {
@@ -45,7 +46,7 @@ module MoodleRb
           }
         }
       )
-      if Utility.error_response?(response)
+      if error_response?(response)
         raise MoodleError.new(response.parsed_response)
       else
         response.parsed_response.first
@@ -56,7 +57,7 @@ module MoodleRb
       response = self.class.post(
         '/webservice/rest/server.php',
         {
-          :query => Utility.query_hash('core_course_get_courses', token),
+          :query => query_hash('core_course_get_courses', token),
           :body => {
             :options => {
               :ids => {
@@ -73,7 +74,7 @@ module MoodleRb
       response = self.class.post(
         '/webservice/rest/server.php',
         {
-          :query => Utility.query_hash('core_course_delete_courses', token),
+          :query => query_hash('core_course_delete_courses', token),
           :body => {
             :courseids => {
               '0' => id
@@ -88,7 +89,7 @@ module MoodleRb
       response = self.class.post(
         '/webservice/rest/server.php',
         {
-          :query => Utility.query_hash('core_enrol_get_enrolled_users', token),
+          :query => query_hash('core_enrol_get_enrolled_users', token),
           :body => {
             :courseid => course_id
           }

@@ -1,6 +1,7 @@
 module MoodleRb
   class Categories
     include HTTParty
+    include Utility
 
     attr_reader :token
     ROOT_CATEGORY = 0
@@ -14,7 +15,7 @@ module MoodleRb
       response = self.class.get(
         '/webservice/rest/server.php',
         {
-          :query => Utility.query_hash('core_course_get_categories', token)
+          :query => query_hash('core_course_get_categories', token)
         }
       )
       response.parsed_response
@@ -34,7 +35,7 @@ module MoodleRb
       response = self.class.post(
         '/webservice/rest/server.php',
         {
-          :query => Utility.query_hash('core_course_create_categories', token),
+          :query => query_hash('core_course_create_categories', token),
           :body => {
             :categories => {
               '0' => {
@@ -47,7 +48,7 @@ module MoodleRb
           }
         }
       )
-      if Utility.error_response?(response)
+      if error_response?(response)
         raise MoodleError.new(response.parsed_response)
       else
         response.parsed_response.first
@@ -58,7 +59,7 @@ module MoodleRb
       response = self.class.post(
         '/webservice/rest/server.php',
         {
-          :query => Utility.query_hash('core_course_get_categories', token),
+          :query => query_hash('core_course_get_categories', token),
           :body => {
             :criteria => {
               '0' => {
@@ -76,7 +77,7 @@ module MoodleRb
       response = self.class.post(
         '/webservice/rest/server.php',
         {
-          :query => Utility.query_hash('core_course_delete_categories', token),
+          :query => query_hash('core_course_delete_categories', token),
           :body => {
             :categories => {
               '0' => {

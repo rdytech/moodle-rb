@@ -1,6 +1,7 @@
 module MoodleRb
   class Client
     include HTTParty
+    include Utility
 
     attr_reader :token, :url
 
@@ -14,7 +15,7 @@ module MoodleRb
       response = self.class.get(
         '/webservice/rest/server.php',
         {
-          :query => Utility.query_hash('core_webservice_get_site_info', token)
+          :query => query_hash('core_webservice_get_site_info', token)
         }
       )
       response.parsed_response
@@ -34,6 +35,10 @@ module MoodleRb
 
     def enrolments
       MoodleRb::Enrolments.new(token, url)
+    end
+
+    def grades
+      MoodleRb::Grades.new(token, url)
     end
   end
 end

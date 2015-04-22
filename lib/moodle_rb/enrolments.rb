@@ -1,6 +1,7 @@
 module MoodleRb
   class Enrolments
     include HTTParty
+    include Utility
 
     attr_reader :token
     STUDENT_ROLE_ID = 5
@@ -16,7 +17,7 @@ module MoodleRb
       response = self.class.post(
         '/webservice/rest/server.php',
         {
-          :query => Utility.query_hash('enrol_manual_enrol_users', token),
+          :query => query_hash('enrol_manual_enrol_users', token),
           :body => {
             :enrolments => {
               '0' => {
@@ -28,7 +29,7 @@ module MoodleRb
           }
         }
       )
-      if Utility.error_response?(response)
+      if error_response?(response)
         raise MoodleError.new(response.parsed_response)
       else
         response.code == 200 && response.parsed_response.nil?
