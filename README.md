@@ -1,6 +1,8 @@
 # MoodleRb
 A Ruby Client for the Moodle REST API.
 
+https://docs.moodle.org/dev/Web_services#Developer_documentation
+
 ## Usage
 
 Initialise a MoodleRb client
