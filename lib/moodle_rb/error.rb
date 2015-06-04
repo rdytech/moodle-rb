@@ -6,8 +6,8 @@ module MoodleRb
       @response_body = response_body
 
       if response_body.is_a?(Hash)
-        @code       = response_body["errorcode"]
-        @message    = response_body["message"]
+        @code       = response_body['errorcode']
+        @message    = response_body['message']
       else
         @message    = response_body.to_s
       end
