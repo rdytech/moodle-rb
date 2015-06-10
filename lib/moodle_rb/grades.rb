@@ -20,8 +20,11 @@ module MoodleRb
           }
         }
       )
-      response.parsed_response.is_a?(Hash) &&
+      if error_response?(response)
+        raise MoodleError.new(response.parsed_response)
+      else
         response.parsed_response['assignments']
+      end
     end
 
     def by_course(course_id, *user_ids)
@@ -35,8 +38,11 @@ module MoodleRb
           }
         }
       )
-      response.parsed_response.is_a?(Hash) &&
+      if error_response?(response)
+        raise MoodleError.new(response.parsed_response)
+      else
         response.parsed_response['items']
+      end
     end
   end
 end

@@ -28,5 +28,16 @@ describe MoodleRb::Grades do
       expect(result).to be_a Array
       expect(result.first).to have_key 'activityid'
     end
+
+    context 'when invalid parameters' do
+      let(:user_ids) { 'ABC' }
+
+      specify do
+        expect{ result }.to raise_error(
+          MoodleRb::MoodleError,
+          'Invalid parameter value detected'
+        )
+      end
+    end
   end
 end
