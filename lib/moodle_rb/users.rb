@@ -88,7 +88,7 @@ module MoodleRb
         {
           :query => query_hash('core_user_get_users', token),
           :body => {
-            :criteria => api_hash(params)
+            :criteria => key_value_query_format(params)
           }
         }
       )

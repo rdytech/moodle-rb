@@ -17,7 +17,7 @@ module MoodleRb
       end
     end
 
-    def api_hash(hash)
+    def key_value_query_format(hash)
       {}.tap do |h|
         hash.each_with_index do |key_value_array, i|
           h[i] = {}
