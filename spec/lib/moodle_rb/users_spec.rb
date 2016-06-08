@@ -84,4 +84,29 @@ describe MoodleRb::Users do
       expect(enrolment).to have_key 'shortname'
     end
   end
+
+  describe '#search', :vcr => {
+    :match_requests_on => [:headers], :record => :once
+  } do
+    let(:results) { user_moodle_rb.search({ :firstname => 'Guest%' }) }
+
+    specify do
+      expect(results).to be_a Array
+      expect(results.first).to be_a Hash
+      expect(results.first['firstname']).to eq 'Guest user'
+    end
+  end
+
+  describe '#update', :vcr => {
+    :match_requests_on => [:headers], :record => :once
+  } do
+    let(:user_id) { 4 }
+    let(:result) do
+      user_moodle_rb.update(:id => user_id, :email => 'samg@jobready.com.au')
+    end
+
+    specify do
+      expect(result).to eq true
+    end
+  end
 end

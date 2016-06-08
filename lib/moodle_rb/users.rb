@@ -79,5 +79,42 @@ module MoodleRb
       )
       response.parsed_response
     end
+
+    # input keys must be in the list of supported user columns to search
+    # id, lastname, firstname, idnumber, username, email
+    def search(params = {})
+      response = self.class.post(
+        '/webservice/rest/server.php',
+        {
+          :query => query_hash('core_user_get_users', token),
+          :body => {
+            :criteria => key_value_query_format(params)
+          }
+        }
+      )
+      response.parsed_response['users']
+    end
+
+    # params must include the id of the user
+    # it may include any other standard user attributes:
+    # username, password, firstname, lastname, email ...
+    def update(params)
+      response = self.class.post(
+        '/webservice/rest/server.php',
+        {
+          :query => query_hash('core_user_update_users', token),
+          :body => {
+            :users => {
+              '0' => params
+            }
+          }
+        }
+      )
+      if error_response?(response)
+        raise MoodleError.new(response.parsed_response)
+      else
+        response.response.code == '200'
+      end
+    end
   end
 end

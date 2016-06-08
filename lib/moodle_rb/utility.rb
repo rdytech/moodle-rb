@@ -17,6 +17,16 @@ module MoodleRb
       end
     end
 
+    def key_value_query_format(hash)
+      {}.tap do |h|
+        hash.each_with_index do |key_value_array, i|
+          h[i] = {}
+          h[i][:key] = key_value_array[0]
+          h[i][:value] = key_value_array[1]
+        end
+      end
+    end
+
     def error_response?(response)
       response && response.parsed_response.is_a?(Hash) &&
         response.parsed_response.has_key?('exception')
