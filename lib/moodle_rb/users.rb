@@ -79,5 +79,20 @@ module MoodleRb
       )
       response.parsed_response
     end
+
+    # input keys must be in the list of supported user columns to search
+    # id, lastname, firstname, idnumber, username, email
+    def search(params = {})
+      response = self.class.post(
+        '/webservice/rest/server.php',
+        {
+          :query => query_hash('core_user_get_users', token),
+          :body => {
+            :criteria => api_hash(params)
+          }
+        }
+      )
+      response.parsed_response['users']
+    end
   end
 end

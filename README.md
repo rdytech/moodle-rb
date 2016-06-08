@@ -108,3 +108,17 @@ Delete a user
 ```
 moodle.users.destroy(user_id)
 ```
+
+Search for a user
+```
+moodle.users.search(:email => 'admin@localhost')
+```
+
+## Tests
+
+You will need to set some environment variables to create new cassettes. We build using MAMP https://www.mamp.info/en/ so it might be
+
+```
+export MOODLE_URL=http://localhost:8888/moodle29/
+export MOODLE_TOKEN=87b95af2df709fa60b395b5c59a3fc2e
+```
