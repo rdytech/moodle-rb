@@ -94,5 +94,27 @@ module MoodleRb
       )
       response.parsed_response['users']
     end
+
+    # params must include the id of the user
+    # it may include any other standard user attributes:
+    # username, password, firstname, lastname, email ...
+    def update(params)
+      response = self.class.post(
+        '/webservice/rest/server.php',
+        {
+          :query => query_hash('core_user_update_users', token),
+          :body => {
+            :users => {
+              '0' => params
+            }
+          }
+        }
+      )
+      if error_response?(response)
+        raise MoodleError.new(response.parsed_response)
+      else
+        response.response.code == '200'
+      end
+    end
   end
 end

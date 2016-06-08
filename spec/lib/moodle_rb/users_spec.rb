@@ -96,4 +96,17 @@ describe MoodleRb::Users do
       expect(results.first['firstname']).to eq 'Guest user'
     end
   end
+
+  describe '#update', :vcr => {
+    :match_requests_on => [:headers], :record => :once
+  } do
+    let(:user_id) { 4 }
+    let(:result) do
+      user_moodle_rb.update(:id => user_id, :email => 'samg@jobready.com.au')
+    end
+
+    specify do
+      expect(result).to eq true
+    end
+  end
 end

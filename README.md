@@ -114,6 +114,11 @@ Search for a user
 moodle.users.search(:email => 'admin@localhost')
 ```
 
+Update a user
+```
+moodle.users.update(:id => 4, :email => 'bwayne@wayneenterprises.com')
+```
+
 ## Tests
 
 You will need to set some environment variables to create new cassettes. We build using MAMP https://www.mamp.info/en/ so it might be
