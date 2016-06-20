@@ -14,8 +14,10 @@ describe MoodleRb::Client do
       let(:token) { 'invalid_moodle_rb_token' }
 
       specify do
-        expect(result).to be_a Hash
-        expect(result['errorcode']).to eq 'invalidtoken'
+        expect{ result }.to raise_error(
+          MoodleRb::MoodleError,
+          'Invalid token - token not found'
+        )
       end
     end
 
