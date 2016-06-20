@@ -17,11 +17,8 @@ module MoodleRb
           :query => query_hash('core_course_get_courses', token)
         }
       )
-      if error_response?(response)
-        raise MoodleError.new(response.parsed_response)
-      else
-        response.parsed_response
-      end
+      check_for_errors(response)
+      response.parsed_response
     end
 
     # required params:
@@ -50,11 +47,8 @@ module MoodleRb
           }
         }
       )
-      if error_response?(response)
-        raise MoodleError.new(response.parsed_response)
-      else
-        response.parsed_response.first
-      end
+      check_for_errors(response)
+      response.parsed_response.first
     end
 
     def show(id)
@@ -71,11 +65,8 @@ module MoodleRb
           }
         }
       )
-      if error_response?(response)
-        raise MoodleError.new(response.parsed_response)
-      else
-        response.parsed_response.first
-      end
+      check_for_errors(response)
+      response.parsed_response.first
     end
 
     def destroy(id)
@@ -90,11 +81,8 @@ module MoodleRb
           }
         }
       )
-      if error_response?(response)
-        raise MoodleError.new(response.parsed_response)
-      else
-        response.parsed_response
-      end
+      check_for_errors(response)
+      response.parsed_response
     end
 
     def enrolled_users(course_id)
@@ -107,11 +95,8 @@ module MoodleRb
           }
         }
       )
-      if error_response?(response)
-        raise MoodleError.new(response.parsed_response)
-      else
-        response.parsed_response
-      end
+      check_for_errors(response)
+      response.parsed_response
     end
   end
 end

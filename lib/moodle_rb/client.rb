@@ -18,11 +18,8 @@ module MoodleRb
           :query => query_hash('core_webservice_get_site_info', token)
         }
       )
-      if error_response?(response)
-        raise MoodleError.new(response.parsed_response)
-      else
-        response.parsed_response
-      end
+      check_for_errors(response)
+      response.parsed_response
     end
 
     def courses

@@ -27,11 +27,8 @@ module MoodleRb
           }
         }
       )
-      if error_response?(response)
-        raise MoodleError.new(response.parsed_response)
-      else
-        response.parsed_response.first
-      end
+      check_for_errors(response)
+      response.parsed_response.first
     end
 
     def show(id)
@@ -49,12 +46,9 @@ module MoodleRb
           }
         }
       )
-      if error_response?(response)
-        raise MoodleError.new(response.parsed_response)
-      else
-        response.parsed_response['users'] &&
-          response.parsed_response['users'].first
-      end
+      check_for_errors(response)
+      response.parsed_response['users'] &&
+        response.parsed_response['users'].first
     end
 
     def destroy(id)
@@ -69,11 +63,8 @@ module MoodleRb
           }
         }
       )
-      if error_response?(response)
-        raise MoodleError.new(response.parsed_response)
-      else
-        response.parsed_response.nil?
-      end
+      check_for_errors(response)
+      response.parsed_response.nil?
     end
 
     def enrolled_courses(user_id)
@@ -86,11 +77,8 @@ module MoodleRb
           }
         }
       )
-      if error_response?(response)
-        raise MoodleError.new(response.parsed_response)
-      else
-        response.parsed_response
-      end
+      check_for_errors(response)
+      response.parsed_response
     end
 
     # input keys must be in the list of supported user columns to search
@@ -105,11 +93,8 @@ module MoodleRb
           }
         }
       )
-      if error_response?(response)
-        raise MoodleError.new(response.parsed_response)
-      else
-        response.parsed_response['users']
-      end
+      check_for_errors(response)
+      response.parsed_response['users']
     end
 
     # params must include the id of the user
@@ -127,11 +112,8 @@ module MoodleRb
           }
         }
       )
-      if error_response?(response)
-        raise MoodleError.new(response.parsed_response)
-      else
-        response.response.code == '200'
-      end
+      check_for_errors(response)
+      response.response.code == '200'
     end
   end
 end
