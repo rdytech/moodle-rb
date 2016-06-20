@@ -49,7 +49,12 @@ module MoodleRb
           }
         }
       )
-      response.parsed_response['users'] && response.parsed_response['users'].first
+      if error_response?(response)
+        raise MoodleError.new(response.parsed_response)
+      else
+        response.parsed_response['users'] &&
+          response.parsed_response['users'].first
+      end
     end
 
     def destroy(id)
@@ -64,7 +69,11 @@ module MoodleRb
           }
         }
       )
-      response.parsed_response.nil?
+      if error_response?(response)
+        raise MoodleError.new(response.parsed_response)
+      else
+        response.parsed_response.nil?
+      end
     end
 
     def enrolled_courses(user_id)
@@ -77,7 +86,11 @@ module MoodleRb
           }
         }
       )
-      response.parsed_response
+      if error_response?(response)
+        raise MoodleError.new(response.parsed_response)
+      else
+        response.parsed_response
+      end
     end
 
     # input keys must be in the list of supported user columns to search
@@ -92,7 +105,11 @@ module MoodleRb
           }
         }
       )
-      response.parsed_response['users']
+      if error_response?(response)
+        raise MoodleError.new(response.parsed_response)
+      else
+        response.parsed_response['users']
+      end
     end
 
     # params must include the id of the user
