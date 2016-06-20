@@ -1,0 +1,75 @@
+--- 
+recorded_with: VCR 2.9.3
+http_interactions: 
+- request: 
+    method: post
+    uri: http://localhost:8888/moodle29/webservice/rest/server.php?moodlewsrestformat=json&wsfunction=core_course_create_categories&wstoken=87b95af2df709fa60b395b5c59a3fc2e
+    body: 
+      string: categories[0][description]=&categories[0][parent]=0&categories[0][name]=_&categories[0][idnumber]=
+    headers: {}
+
+  response: 
+    status: 
+      code: 200
+      message: OK
+    headers: 
+      Server: 
+      - Apache/2.2.29 (Unix) mod_fastcgi/2.4.6 mod_wsgi/3.4 Python/2.7.8 PHP/5.6.2 mod_ssl/2.2.29 OpenSSL/0.9.8zg DAV/2 mod_perl/2.0.8 Perl/v5.20.0
+      Access-Control-Allow-Origin: 
+      - "*"
+      Content-Type: 
+      - application/json
+      Expires: 
+      - Thu, 01 Jan 1970 00:00:00 GMT
+      X-Powered-By: 
+      - PHP/5.6.2
+      Accept-Ranges: 
+      - none
+      Cache-Control: 
+      - private, must-revalidate, pre-check=0, post-check=0, max-age=0
+      Date: 
+      - Mon, 20 Jun 2016 23:23:47 GMT
+      Content-Length: 
+      - "21"
+      Pragma: 
+      - no-cache
+    body: 
+      string: "[{\"id\":3,\"name\":\"_\"}]"
+    http_version: 
+  recorded_at: Mon, 20 Jun 2016 23:23:47 GMT
+- request: 
+    method: post
+    uri: http://localhost:8888/moodle29/webservice/rest/server.php?moodlewsrestformat=json&wsfunction=core_course_delete_categories&wstoken=87b95af2df709fa60b395b5c59a3fc2e
+    body: 
+      string: categories[0][recursive]=1&categories[0][id]=3
+    headers: {}
+
+  response: 
+    status: 
+      code: 200
+      message: OK
+    headers: 
+      Server: 
+      - Apache/2.2.29 (Unix) mod_fastcgi/2.4.6 mod_wsgi/3.4 Python/2.7.8 PHP/5.6.2 mod_ssl/2.2.29 OpenSSL/0.9.8zg DAV/2 mod_perl/2.0.8 Perl/v5.20.0
+      Access-Control-Allow-Origin: 
+      - "*"
+      Content-Type: 
+      - application/json
+      Expires: 
+      - Thu, 01 Jan 1970 00:00:00 GMT
+      X-Powered-By: 
+      - PHP/5.6.2
+      Accept-Ranges: 
+      - none
+      Cache-Control: 
+      - private, must-revalidate, pre-check=0, post-check=0, max-age=0
+      Date: 
+      - Mon, 20 Jun 2016 23:23:47 GMT
+      Content-Length: 
+      - "4"
+      Pragma: 
+      - no-cache
+    body: 
+      string: "null"
+    http_version: 
+  recorded_at: Mon, 20 Jun 2016 23:23:47 GMT

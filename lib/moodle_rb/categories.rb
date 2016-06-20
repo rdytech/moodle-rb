@@ -18,7 +18,11 @@ module MoodleRb
           :query => query_hash('core_course_get_categories', token)
         }
       )
-      response.parsed_response
+      if error_response?(response)
+        raise MoodleError.new(response.parsed_response)
+      else
+        response.parsed_response
+      end
     end
 
     # required params:
@@ -70,7 +74,11 @@ module MoodleRb
           }
         }
       )
-      response.parsed_response.first
+      if error_response?(response)
+        raise MoodleError.new(response.parsed_response)
+      else
+        response.parsed_response.first
+      end
     end
 
     def destroy(id)
@@ -88,7 +96,11 @@ module MoodleRb
           }
         }
       )
-      response.parsed_response.nil?
+      if error_response?(response)
+        raise MoodleError.new(response.parsed_response)
+      else
+        response.parsed_response.nil?
+      end
     end
   end
 end
