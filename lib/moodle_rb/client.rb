@@ -18,6 +18,7 @@ module MoodleRb
           :query => query_hash('core_webservice_get_site_info', token)
         }
       )
+      check_for_errors(response)
       response.parsed_response
     end
 

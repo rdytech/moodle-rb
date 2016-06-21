@@ -22,6 +22,16 @@ describe MoodleRb::Courses do
       expect(result).to be_a Array
       expect(result.first).to have_key 'id'
     end
+
+    context 'when using invalid token' do
+      let(:token) { '' }
+      specify do
+        expect{ course_moodle_rb.index }.to raise_error(
+          MoodleRb::MoodleError,
+          'Invalid token - token not found'
+        )
+      end
+    end
   end
 
   describe '#create', :vcr => {
@@ -59,16 +69,50 @@ describe MoodleRb::Courses do
       expect(result).to be_a Hash
       expect(result['id']).to eq 1
     end
+
+    context 'when using invalid token' do
+      let(:token) { '' }
+      specify do
+        expect{ course_moodle_rb.show(id) }.to raise_error(
+          MoodleRb::MoodleError,
+          'Invalid token - token not found'
+        )
+      end
+    end
   end
 
   describe '#destroy', :vcr => {
     :match_requests_on => [:headers], :record => :once
   } do
-    let(:id) { course_moodle_rb.create(params)['id'] }
-    let(:result) { course_moodle_rb.destroy(id) }
+    context 'when using valid token' do
+      let(:id) { course_moodle_rb.create(params)['id'] }
+      let(:result) { course_moodle_rb.destroy(id) }
 
-    specify do
-      expect(result).to eq true
+      specify do
+          expect(result).to be_a Hash
+          expect(result['warnings']).to be_a Array
+          expect(result['warnings']).to be_empty
+      end
+
+      context 'when using invalid course id' do
+        let(:result) { course_moodle_rb.destroy(-1) }
+
+        specify do
+          expect(result).to be_a Hash
+          expect(result['warnings']).to be_a Array
+          expect(result['warnings'][0]['warningcode']).to eq 'unknowncourseidnumber'
+        end
+      end
+    end
+
+    context 'when using invalid token' do
+      let(:token) { '' }
+      specify do
+        expect{ course_moodle_rb.destroy(-1) }.to raise_error(
+          MoodleRb::MoodleError,
+          'Invalid token - token not found'
+        )
+      end
     end
   end
 
@@ -76,17 +120,30 @@ describe MoodleRb::Courses do
     :match_requests_on => [:headers], :record => :once
   } do
     let(:course_id) { 8 }
-    let!(:enrolled_user) do
-      MoodleRb.new(token, url).enrolments.create(
-        :user_id => 3, :course_id => course_id)
-    end
-    let(:result) { course_moodle_rb.enrolled_users(course_id) }
-    let(:enrolment) { result.first }
 
-    specify do
-      expect(result).to be_a Array
-      expect(enrolment).to have_key 'id'
-      expect(enrolment).to have_key 'enrolledcourses'
+    context 'when using valid token' do
+      let!(:enrolled_user) do
+        MoodleRb.new(token, url).enrolments.create(
+          :user_id => 3, :course_id => course_id)
+      end
+      let(:result) { course_moodle_rb.enrolled_users(course_id) }
+      let(:enrolment) { result.first }
+
+      specify do
+        expect(result).to be_a Array
+        expect(enrolment).to have_key 'id'
+        expect(enrolment).to have_key 'enrolledcourses'
+      end
+    end
+
+    context 'when using invalid token' do
+      let(:token) { '' }
+      specify do
+        expect{ course_moodle_rb.enrolled_users(course_id) }.to raise_error(
+          MoodleRb::MoodleError,
+          'Invalid token - token not found'
+        )
+      end
     end
   end
 end

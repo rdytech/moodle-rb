@@ -18,6 +18,7 @@ module MoodleRb
           :query => query_hash('core_course_get_categories', token)
         }
       )
+      check_for_errors(response)
       response.parsed_response
     end
 
@@ -48,11 +49,8 @@ module MoodleRb
           }
         }
       )
-      if error_response?(response)
-        raise MoodleError.new(response.parsed_response)
-      else
-        response.parsed_response.first
-      end
+      check_for_errors(response)
+      response.parsed_response.first
     end
 
     def show(id)
@@ -70,6 +68,7 @@ module MoodleRb
           }
         }
       )
+      check_for_errors(response)
       response.parsed_response.first
     end
 
@@ -88,6 +87,7 @@ module MoodleRb
           }
         }
       )
+      check_for_errors(response)
       response.parsed_response.nil?
     end
   end

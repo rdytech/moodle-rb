@@ -27,11 +27,8 @@ module MoodleRb
           }
         }
       )
-      if error_response?(response)
-        raise MoodleError.new(response.parsed_response)
-      else
-        response.parsed_response.first
-      end
+      check_for_errors(response)
+      response.parsed_response.first
     end
 
     def show(id)
@@ -49,7 +46,9 @@ module MoodleRb
           }
         }
       )
-      response.parsed_response['users'] && response.parsed_response['users'].first
+      check_for_errors(response)
+      response.parsed_response['users'] &&
+        response.parsed_response['users'].first
     end
 
     def destroy(id)
@@ -64,6 +63,7 @@ module MoodleRb
           }
         }
       )
+      check_for_errors(response)
       response.parsed_response.nil?
     end
 
@@ -77,6 +77,7 @@ module MoodleRb
           }
         }
       )
+      check_for_errors(response)
       response.parsed_response
     end
 
@@ -92,6 +93,7 @@ module MoodleRb
           }
         }
       )
+      check_for_errors(response)
       response.parsed_response['users']
     end
 
@@ -110,11 +112,8 @@ module MoodleRb
           }
         }
       )
-      if error_response?(response)
-        raise MoodleError.new(response.parsed_response)
-      else
-        response.response.code == '200'
-      end
+      check_for_errors(response)
+      response.response.code == '200'
     end
   end
 end

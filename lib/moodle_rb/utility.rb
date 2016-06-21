@@ -27,6 +27,13 @@ module MoodleRb
       end
     end
 
+    def check_for_errors(response)
+      return unless error_response?(response)
+      raise MoodleError.new(response.parsed_response)
+    end
+
+    private
+
     def error_response?(response)
       response && response.parsed_response.is_a?(Hash) &&
         response.parsed_response.has_key?('exception')

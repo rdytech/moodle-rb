@@ -20,11 +20,8 @@ module MoodleRb
           }
         }
       )
-      if error_response?(response)
-        raise MoodleError.new(response.parsed_response)
-      else
-        response.parsed_response['assignments']
-      end
+      check_for_errors(response)
+      response.parsed_response['assignments']
     end
 
     def by_course(course_id, *user_ids)
@@ -38,11 +35,8 @@ module MoodleRb
           }
         }
       )
-      if error_response?(response)
-        raise MoodleError.new(response.parsed_response)
-      else
-        response.parsed_response['items']
-      end
+      check_for_errors(response)
+      response.parsed_response['items']
     end
   end
 end

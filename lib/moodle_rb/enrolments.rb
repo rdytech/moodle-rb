@@ -29,11 +29,8 @@ module MoodleRb
           }
         }
       )
-      if error_response?(response)
-        raise MoodleError.new(response.parsed_response)
-      else
-        response.code == 200 && response.parsed_response.nil?
-      end
+      check_for_errors(response)
+      response.code == 200 && response.parsed_response.nil?
     end
   end
 end

@@ -52,6 +52,16 @@ describe MoodleRb::Users do
       expect(result).to be_a Hash
       expect(result['id']).to eq 5
     end
+
+    context 'when using invalid token' do
+      let(:token) { '' }
+      specify do
+        expect{ user_moodle_rb.show(id) }.to raise_error(
+          MoodleRb::MoodleError,
+          'Invalid token - token not found'
+        )
+      end
+    end
   end
 
   describe '#destroy', :vcr => {
@@ -67,7 +77,20 @@ describe MoodleRb::Users do
     context 'when id does not exist' do
       let(:id) { 999 }
       specify do
-        expect(result).to eq false
+        expect{ result }.to raise_error(
+          MoodleRb::MoodleError,
+          'Invalid user'
+        )
+      end
+    end
+
+    context 'when using invalid token' do
+      let(:token) { '' }
+      specify do
+        expect{ user_moodle_rb.destroy(-1) }.to raise_error(
+          MoodleRb::MoodleError,
+          'Invalid token - token not found'
+        )
       end
     end
   end
@@ -83,6 +106,16 @@ describe MoodleRb::Users do
       expect(result).to be_a Array
       expect(enrolment).to have_key 'shortname'
     end
+
+    context 'when using invalid token' do
+      let(:token) { '' }
+      specify do
+        expect{ user_moodle_rb.enrolled_courses(user_id) }.to raise_error(
+          MoodleRb::MoodleError,
+          'Invalid token - token not found'
+        )
+      end
+    end
   end
 
   describe '#search', :vcr => {
@@ -94,6 +127,16 @@ describe MoodleRb::Users do
       expect(results).to be_a Array
       expect(results.first).to be_a Hash
       expect(results.first['firstname']).to eq 'Guest user'
+    end
+
+    context 'when using invalid token' do
+      let(:token) { '' }
+      specify do
+        expect{ user_moodle_rb.search({ :firstname => '%' }) }.to raise_error(
+          MoodleRb::MoodleError,
+          'Invalid token - token not found'
+        )
+      end
     end
   end
 
@@ -107,6 +150,18 @@ describe MoodleRb::Users do
 
     specify do
       expect(result).to eq true
+    end
+
+    context 'when using invalid token' do
+      let(:token) { '' }
+      specify do
+        expect do
+          user_moodle_rb.update(:id => user_id, :email => '')
+        end.to raise_error(
+          MoodleRb::MoodleError,
+          'Invalid token - token not found'
+        )
+      end
     end
   end
 end
