@@ -10,7 +10,7 @@ require 'moodle_rb/grades'
 require 'moodle_rb/users'
 
 module MoodleRb
-  def self.new(token, url)
-    Client.new(token, url)
+  def self.new(token, url, query_options = {})
+    Client.new(token, url, query_options)
   end
 end

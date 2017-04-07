@@ -1,5 +1,5 @@
 module MoodleRb
-  VERSION = '1.0.3' unless defined?(self::VERSION)
+  VERSION = '1.0.4' unless defined?(self::VERSION)
 
   def self.version
     VERSION
