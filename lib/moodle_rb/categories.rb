@@ -3,11 +3,12 @@ module MoodleRb
     include HTTParty
     include Utility
 
-    attr_reader :token
+    attr_reader :token, :query_options
     ROOT_CATEGORY = 0
 
-    def initialize(token, url)
+    def initialize(token, url, query_options)
       @token = token
+      @query_options = query_options
       self.class.base_uri url
     end
 
@@ -16,7 +17,7 @@ module MoodleRb
         '/webservice/rest/server.php',
         {
           :query => query_hash('core_course_get_categories', token)
-        }
+        }.merge(query_options)
       )
       check_for_errors(response)
       response.parsed_response
@@ -47,7 +48,7 @@ module MoodleRb
               }
             }
           }
-        }
+        }.merge(query_options)
       )
       check_for_errors(response)
       response.parsed_response.first
@@ -66,7 +67,7 @@ module MoodleRb
               }
             }
           }
-        }
+        }.merge(query_options)
       )
       check_for_errors(response)
       response.parsed_response.first
@@ -85,7 +86,7 @@ module MoodleRb
               }
             }
           }
-        }
+        }.merge(query_options)
       )
       check_for_errors(response)
       response.parsed_response.nil?

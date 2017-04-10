@@ -3,11 +3,12 @@ module MoodleRb
     include HTTParty
     include Utility
 
-    attr_reader :token
+    attr_reader :token, :query_options
     STUDENT_ROLE_ID = 5
 
-    def initialize(token, url)
+    def initialize(token, url, query_options)
       @token = token
+      @query_options = query_options
       self.class.base_uri url
     end
 
@@ -27,7 +28,7 @@ module MoodleRb
               }
             }
           }
-        }
+        }.merge(query_options)
       )
       check_for_errors(response)
       response.code == 200 && response.parsed_response.nil?

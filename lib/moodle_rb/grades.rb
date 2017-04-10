@@ -3,10 +3,11 @@ module MoodleRb
     include HTTParty
     include Utility
 
-    attr_reader :token
+    attr_reader :token, :query_options
 
-    def initialize(token, url)
+    def initialize(token, url, query_options)
       @token = token
+      @query_options = query_options
       self.class.base_uri url
     end
 
@@ -18,7 +19,7 @@ module MoodleRb
           :body => {
             :assignmentids => api_array(assignment_id)
           }
-        }
+        }.merge(query_options)
       )
       check_for_errors(response)
       response.parsed_response['assignments']
@@ -33,7 +34,7 @@ module MoodleRb
             :courseid => course_id,
             :userids => api_array(user_ids)
           }
-        }
+        }.merge(query_options)
       )
       check_for_errors(response)
       response.parsed_response['items']

@@ -3,10 +3,11 @@ module MoodleRb
     include HTTParty
     include Utility
 
-    attr_reader :token
+    attr_reader :token, :query_options
 
-    def initialize(token, url)
+    def initialize(token, url, query_options)
       @token = token
+      @query_options = query_options
       self.class.base_uri url
     end
 
@@ -25,7 +26,7 @@ module MoodleRb
               '0' => params
             }
           }
-        }
+        }.merge(query_options)
       )
       check_for_errors(response)
       response.parsed_response.first
@@ -44,7 +45,7 @@ module MoodleRb
               }
             }
           }
-        }
+        }.merge(query_options)
       )
       check_for_errors(response)
       response.parsed_response['users'] &&
@@ -61,7 +62,7 @@ module MoodleRb
               '0' => id
             }
           }
-        }
+        }.merge(query_options)
       )
       check_for_errors(response)
       response.parsed_response.nil?
@@ -75,7 +76,7 @@ module MoodleRb
           :body => {
             :userid => user_id
           }
-        }
+        }.merge(query_options)
       )
       check_for_errors(response)
       response.parsed_response
@@ -91,7 +92,7 @@ module MoodleRb
           :body => {
             :criteria => key_value_query_format(params)
           }
-        }
+        }.merge(query_options)
       )
       check_for_errors(response)
       response.parsed_response['users']
@@ -110,7 +111,7 @@ module MoodleRb
               '0' => params
             }
           }
-        }
+        }.merge(query_options)
       )
       check_for_errors(response)
       response.response.code == '200'
