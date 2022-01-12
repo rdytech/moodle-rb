@@ -146,4 +146,82 @@ describe MoodleRb::Courses do
       end
     end
   end
+
+  describe '#grade_items', :vcr => {
+    :match_requests_on => [:headers], :record => :once
+  } do
+    let(:course_id) { 5 }
+
+    context 'when using valid token' do
+      let(:result) { course_moodle_rb.grade_items(course_id) }
+      let(:user_grades) { result.first }
+
+      specify do
+        expect(result).to be_a Array
+        expect(user_grades).to have_key 'gradeitems'
+      end
+    end
+
+    context 'when using invalid token' do
+      let(:token) { '' }
+      specify do
+        expect{ course_moodle_rb.grade_items(course_id) }.to raise_error(
+          MoodleRb::MoodleError,
+          'Invalid token - token not found'
+        )
+      end
+    end
+  end
+
+  describe '#contents', :vcr => {
+    :match_requests_on => [:headers], :record => :once
+  } do
+    let(:course_id) { 5 }
+
+    context 'when using valid token' do
+      let(:result) { course_moodle_rb.contents(course_id) }
+      let(:enrolment) { result.first }
+
+      specify do
+        expect(result).to be_a Hash
+        expect(result).to have_key 'modules'
+      end
+    end
+
+    context 'when using invalid token' do
+      let(:token) { '' }
+      specify do
+        expect{ course_moodle_rb.contents(course_id) }.to raise_error(
+          MoodleRb::MoodleError,
+          'Invalid token - token not found'
+        )
+      end
+    end
+  end
+
+  describe '#module', :vcr => {
+    :match_requests_on => [:headers], :record => :once
+  } do
+    let(:course_module_id) { 21 }
+
+    context 'when using valid token' do
+      let(:result) { course_moodle_rb.module(course_module_id) }
+
+      specify do
+        expect(result).to be_a Hash
+        expect(result).to have_key 'name'
+        expect(result).to have_key 'gradepass'
+      end
+    end
+
+    context 'when using invalid token' do
+      let(:token) { '' }
+      specify do
+        expect{ course_moodle_rb.module(course_module_id) }.to raise_error(
+          MoodleRb::MoodleError,
+          'Invalid token - token not found'
+        )
+      end
+    end
+  end
 end

@@ -140,6 +140,35 @@ describe MoodleRb::Users do
     end
   end
 
+  describe '#search_identity', :vcr => {
+    :match_requests_on => [:headers], :record => :once
+  } do
+    let(:results) { user_moodle_rb.search_identity('moodle_student@mailinator.com') }
+
+    specify do
+      expect(results).to be_a Array
+      expect(results.first).to be_a Hash
+      expect(results.first['id']).to eq 25
+      expect(results.first['fullname']).to eq 'Moodle Student'
+      expect(results.first['extrafields'].first['name']).to eq 'idnumber'
+      expect(results.first['extrafields'].first['value']).to eq 'MS01'
+      expect(results.first['extrafields'].last['name']).to eq 'email'
+      expect(results.first['extrafields'].last['value']).to eq 'moodle_student@mailinator.com'
+    end
+
+    context 'when using invalid token' do
+      let(:token) { '' }
+      specify do
+        expect do
+          user_moodle_rb.search_identity('moodle_student@mailinator.com')
+        end.to raise_error(
+          MoodleRb::MoodleError,
+          'Invalid token - token not found'
+        )
+      end
+    end
+  end
+
   describe '#update', :vcr => {
     :match_requests_on => [:headers], :record => :once
   } do

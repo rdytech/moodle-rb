@@ -42,6 +42,21 @@ Delete a course
 moodle.courses.destroy(course_id)
 ```
 
+Get course grades
+```
+moodle.courses.grade_items(course_id)
+```
+
+Get course contents
+```
+moodle.courses.contents(course_id)
+```
+
+Get course module
+```
+moodle.courses.module(course_module_id)
+```
+
 ### Categories
 
 Create a category
@@ -68,9 +83,26 @@ moodle.categories.destroy(category_id)
 
 ### Enrolments
 
-Create an enrolment
+Create a student enrolment
 ```
 moodle.enrolments.create(
+  :user_id => user_id,
+  :course_id => course_id
+)
+```
+
+Create a teacher enrolment
+```
+moodle.enrolments.create(
+  :user_id => user_id,
+  :course_id => course_id,
+  :role_id => 3
+)
+```
+
+Delete an enrolment
+```
+moodle.enrolments.destroy(
   :user_id => user_id,
   :course_id => course_id
 )
@@ -112,6 +144,11 @@ moodle.users.destroy(user_id)
 Search for a user
 ```
 moodle.users.search(:email => 'admin@localhost')
+```
+
+Search for a user via identity
+```
+moodle.users.search_identity('admin@localhost')
 ```
 
 Update a user

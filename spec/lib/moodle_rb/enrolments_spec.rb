@@ -36,4 +36,37 @@ describe MoodleRb::Enrolments do
       end
     end
   end
+
+  describe '#destroy', :vcr => {
+    :match_requests_on => [:headers], :record => :once
+  } do
+    let(:params) do
+      {
+        :user_id => '7',
+        :course_id => '5'
+      }
+    end
+
+    let(:result) { enrolment_moodle_rb.destroy(params) }
+
+    specify do
+      expect(result).to eq true
+    end
+
+    context 'when user or course id is invalid' do
+      let(:params) do
+        {
+          :user_id => 9999,
+          :course_id => 9999
+        }
+      end
+
+      specify do
+        expect{ result }.to raise_error(
+          MoodleRb::MoodleError,
+          "Can't find data record in database table course."
+        )
+      end
+    end
+  end
 end
