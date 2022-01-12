@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: post
-    uri: https://readytech-test.moodlecloud.com/webservice/rest/server.php?moodlewsrestformat=json&wsfunction=gradereport_user_get_grade_items&wstoken=
+    uri: https://localhost:8888/moodle28/webservice/rest/server.php?moodlewsrestformat=json&wsfunction=gradereport_user_get_grade_items&wstoken=
     body:
       encoding: UTF-8
       string: courseid=5&userid=0&groupid=0
@@ -47,6 +47,6 @@ http_interactions:
       encoding: UTF-8
       string: '{"exception":"moodle_exception","errorcode":"invalidtoken","message":"Invalid
         token - token not found"}'
-    http_version: 
+    http_version:
   recorded_at: Wed, 12 Jan 2022 00:08:03 GMT
 recorded_with: VCR 2.9.3

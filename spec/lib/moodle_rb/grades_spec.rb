@@ -1,12 +1,12 @@
 require 'spec_helper'
 
 describe MoodleRb::Grades do
-  let(:url) { ENV['MOODLE_URL'] || 'localhost' }
-  let(:token) { ENV['MOODLE_TOKEN'] || '' }
+  let(:url) { ENV['MOODLE_URL'] || 'localhost:8888/moodle28' }
+  let(:token) { ENV['MOODLE_TOKEN'] || '60fc9c9415259404795094957e4ab32f' }
   let(:grade_moodle_rb) { MoodleRb.new(token, url).grades }
 
   describe '#by_assignment', :vcr => {
-    :match_requests_on => [:body, :headers], :record => :once
+    :match_requests_on => [:path], :record => :once
   } do
     let(:assignment_id) { 1 }
     let(:result) { grade_moodle_rb.by_assignment(assignment_id) }
@@ -18,7 +18,7 @@ describe MoodleRb::Grades do
   end
 
   describe '#by_course', :vcr => {
-    :match_requests_on => [:headers], :record => :once
+    :match_requests_on => [:path], :record => :once
   } do
     let(:course_id) { 8 }
     let(:user_ids) { 5 }

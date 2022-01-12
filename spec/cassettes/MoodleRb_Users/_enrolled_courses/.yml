@@ -1,39 +1,39 @@
---- 
+---
 recorded_with: VCR 2.9.3
-http_interactions: 
-- request: 
+http_interactions:
+- request:
     method: post
     uri: http://localhost:8888/moodle28/webservice/rest/server.php?moodlewsrestformat=json&wsfunction=core_enrol_get_users_courses&wstoken=60fc9c9415259404795094957e4ab32f
-    body: 
+    body:
       string: userid=3
     headers: {}
 
-  response: 
-    status: 
+  response:
+    status:
       code: 200
       message: OK
-    headers: 
-      Accept-Ranges: 
+    headers:
+      Accept-Ranges:
       - none
-      Date: 
+      Date:
       - Sun, 12 Apr 2015 01:05:25 GMT
-      Cache-Control: 
+      Cache-Control:
       - private, must-revalidate, pre-check=0, post-check=0, max-age=0
-      Expires: 
+      Expires:
       - Thu, 01 Jan 1970 00:00:00 GMT
-      Pragma: 
+      Pragma:
       - no-cache
-      X-Powered-By: 
+      X-Powered-By:
       - PHP/5.6.2
-      Content-Type: 
+      Content-Type:
       - application/json
-      Server: 
+      Server:
       - Apache/2.2.29 (Unix) mod_fastcgi/2.4.6 mod_wsgi/3.4 Python/2.7.8 PHP/5.6.2 mod_ssl/2.2.29 OpenSSL/0.9.8zd DAV/2 mod_perl/2.0.8 Perl/v5.20.0
-      Content-Length: 
+      Content-Length:
       - "110"
-      Access-Control-Allow-Origin: 
+      Access-Control-Allow-Origin:
       - "*"
-    body: 
+    body:
       string: "[{\"id\":8,\"shortname\":\"TestC1\",\"fullname\":\"Test Course\",\"enrolledusercount\":1,\"idnumber\":\"ExtRef\",\"visible\":1}]"
-    http_version: 
+    http_version:
   recorded_at: Sun, 12 Apr 2015 01:05:25 GMT

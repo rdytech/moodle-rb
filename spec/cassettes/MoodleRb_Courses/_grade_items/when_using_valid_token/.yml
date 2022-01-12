@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: post
-    uri: https://readytech-test.moodlecloud.com/webservice/rest/server.php?moodlewsrestformat=json&wsfunction=gradereport_user_get_grade_items&wstoken=1475f037b1416286191d08821d21948f
+    uri: https://localhost:8888/moodle28/webservice/rest/server.php?moodlewsrestformat=json&wsfunction=gradereport_user_get_grade_items&wstoken=60fc9c9415259404795094957e4ab32f
     body:
       encoding: UTF-8
       string: courseid=5&userid=0&groupid=0
@@ -51,6 +51,6 @@ http_interactions:
         %","graderaw":50,"gradedatesubmitted":null,"gradedategraded":1633307813,"gradehiddenbydate":false,"gradeneedsupdate":false,"gradeishidden":false,"gradeislocked":false,"gradeisoverridden":true,"gradeformatted":"50.00","grademin":0,"grademax":100,"rangeformatted":"0&ndash;100","percentageformatted":"50.00
         %","feedback":"","feedbackformat":0},{"id":6,"itemname":null,"itemtype":"course","itemmodule":null,"iteminstance":5,"itemnumber":null,"idnumber":null,"categoryid":null,"outcomeid":null,"scaleid":null,"locked":false,"graderaw":60,"gradedatesubmitted":null,"gradedategraded":1633307813,"gradehiddenbydate":false,"gradeneedsupdate":false,"gradeishidden":false,"gradeislocked":false,"gradeisoverridden":true,"gradeformatted":"60.00","grademin":0,"grademax":100,"rangeformatted":"0&ndash;100","percentageformatted":"60.00
         %","feedback":null,"feedbackformat":0}]}],"warnings":[]}'
-    http_version: 
+    http_version:
   recorded_at: Wed, 12 Jan 2022 00:08:03 GMT
 recorded_with: VCR 2.9.3

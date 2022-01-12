@@ -17,10 +17,9 @@ Gem::Specification.new do |spec|
   spec.require_paths = ['lib']
 
   spec.add_development_dependency 'bundler', '~> 1.3'
-  spec.add_development_dependency 'ruby-debug', '0.10.4'
   spec.add_development_dependency 'rake', '~> 0'
   spec.add_development_dependency 'rspec', '~> 3.0'
-  spec.add_development_dependency 'webmock', '~> 1.0'
+  spec.add_development_dependency 'webmock', '~> 1.24.6'
   spec.add_development_dependency 'vcr', '~> 2.9'
 
   spec.add_dependency 'httparty', '>= 0.11.0'

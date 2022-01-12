@@ -1,8 +1,8 @@
 require 'spec_helper'
 
 describe MoodleRb::Courses do
-  let(:url) { ENV['MOODLE_URL'] || 'localhost' }
-  let(:token) { ENV['MOODLE_TOKEN'] || '' }
+  let(:url) { ENV['MOODLE_URL'] || 'localhost:8888/moodle28' }
+  let(:token) { ENV['MOODLE_TOKEN'] || '60fc9c9415259404795094957e4ab32f' }
   let(:course_moodle_rb) { MoodleRb.new(token, url).courses }
   let(:params) do
     {
@@ -14,7 +14,7 @@ describe MoodleRb::Courses do
   end
 
   describe '#index', :vcr => {
-    :match_requests_on => [:body, :headers], :record => :once
+    :match_requests_on => [:body, :path], :record => :once
   } do
     let(:result) { course_moodle_rb.index }
 
@@ -35,7 +35,7 @@ describe MoodleRb::Courses do
   end
 
   describe '#create', :vcr => {
-    :match_requests_on => [:headers], :record => :once
+    :match_requests_on => [:path], :record => :once
   } do
     let(:result) { course_moodle_rb.create(params) }
 
@@ -60,7 +60,7 @@ describe MoodleRb::Courses do
   end
 
   describe '#show', :vcr => {
-    :match_requests_on => [:headers], :record => :once
+    :match_requests_on => [:path], :record => :once
   } do
     let(:id) { 1 }
     let(:result) { course_moodle_rb.show(id) }
@@ -82,7 +82,7 @@ describe MoodleRb::Courses do
   end
 
   describe '#destroy', :vcr => {
-    :match_requests_on => [:headers], :record => :once
+    :match_requests_on => [:path], :record => :once
   } do
     context 'when using valid token' do
       let(:id) { course_moodle_rb.create(params)['id'] }
@@ -117,7 +117,7 @@ describe MoodleRb::Courses do
   end
 
   describe '#enrolled_users', :vcr => {
-    :match_requests_on => [:headers], :record => :once
+    :match_requests_on => [:path], :record => :once
   } do
     let(:course_id) { 8 }
 
@@ -148,7 +148,7 @@ describe MoodleRb::Courses do
   end
 
   describe '#grade_items', :vcr => {
-    :match_requests_on => [:headers], :record => :once
+    :match_requests_on => [:path], :record => :once
   } do
     let(:course_id) { 5 }
 
@@ -174,7 +174,7 @@ describe MoodleRb::Courses do
   end
 
   describe '#contents', :vcr => {
-    :match_requests_on => [:headers], :record => :once
+    :match_requests_on => [:path], :record => :once
   } do
     let(:course_id) { 5 }
 
@@ -200,7 +200,7 @@ describe MoodleRb::Courses do
   end
 
   describe '#module', :vcr => {
-    :match_requests_on => [:headers], :record => :once
+    :match_requests_on => [:path], :record => :once
   } do
     let(:course_module_id) { 21 }
 

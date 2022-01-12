@@ -1,75 +1,75 @@
---- 
-http_interactions: 
-- request: 
+---
+http_interactions:
+- request:
     method: post
     uri: http://localhost:8888/moodle28/webservice/rest/server.php?moodlewsrestformat=json&wsfunction=core_course_create_courses&wstoken=60fc9c9415259404795094957e4ab32f
-    body: 
+    body:
       string: courses[0][categoryid]=1&courses[0][idnumber]=ExtRef&courses[0][fullname]=Test%20Course&courses[0][shortname]=TestC1
     headers: {}
 
-  response: 
-    status: 
+  response:
+    status:
       code: 200
       message: OK
-    headers: 
-      Cache-Control: 
+    headers:
+      Cache-Control:
       - private, must-revalidate, pre-check=0, post-check=0, max-age=0
-      Content-Length: 
+      Content-Length:
       - "31"
-      Expires: 
+      Expires:
       - Thu, 01 Jan 1970 00:00:00 GMT
-      Pragma: 
+      Pragma:
       - no-cache
-      Date: 
+      Date:
       - Sun, 12 Apr 2015 00:54:55 GMT
-      X-Powered-By: 
+      X-Powered-By:
       - PHP/5.6.2
-      Accept-Ranges: 
+      Accept-Ranges:
       - none
-      Server: 
+      Server:
       - Apache/2.2.29 (Unix) mod_fastcgi/2.4.6 mod_wsgi/3.4 Python/2.7.8 PHP/5.6.2 mod_ssl/2.2.29 OpenSSL/0.9.8zd DAV/2 mod_perl/2.0.8 Perl/v5.20.0
-      Content-Type: 
+      Content-Type:
       - application/json
-      Access-Control-Allow-Origin: 
+      Access-Control-Allow-Origin:
       - "*"
-    body: 
+    body:
       string: "[{\"id\":8,\"shortname\":\"TestC1\"}]"
-    http_version: 
+    http_version:
   recorded_at: Sun, 12 Apr 2015 00:54:55 GMT
-- request: 
+- request:
     method: post
     uri: http://localhost:8888/moodle28/webservice/rest/server.php?moodlewsrestformat=json&wsfunction=core_course_create_courses&wstoken=60fc9c9415259404795094957e4ab32f
-    body: 
+    body:
       string: courses[0][categoryid]=1&courses[0][idnumber]=ExtRef&courses[0][fullname]=Test%20Course&courses[0][shortname]=TestC1
     headers: {}
 
-  response: 
-    status: 
+  response:
+    status:
       code: 200
       message: OK
-    headers: 
-      Cache-Control: 
+    headers:
+      Cache-Control:
       - private, must-revalidate, pre-check=0, post-check=0, max-age=0
-      Content-Length: 
+      Content-Length:
       - "128"
-      Expires: 
+      Expires:
       - Thu, 01 Jan 1970 00:00:00 GMT
-      Pragma: 
+      Pragma:
       - no-cache
-      Date: 
+      Date:
       - Sun, 12 Apr 2015 00:54:55 GMT
-      X-Powered-By: 
+      X-Powered-By:
       - PHP/5.6.2
-      Accept-Ranges: 
+      Accept-Ranges:
       - none
-      Server: 
+      Server:
       - Apache/2.2.29 (Unix) mod_fastcgi/2.4.6 mod_wsgi/3.4 Python/2.7.8 PHP/5.6.2 mod_ssl/2.2.29 OpenSSL/0.9.8zd DAV/2 mod_perl/2.0.8 Perl/v5.20.0
-      Content-Type: 
+      Content-Type:
       - application/json
-      Access-Control-Allow-Origin: 
+      Access-Control-Allow-Origin:
       - "*"
-    body: 
+    body:
       string: "{\"exception\":\"moodle_exception\",\"errorcode\":\"shortnametaken\",\"message\":\"Short name is already used for another course (TestC1)\"}"
-    http_version: 
+    http_version:
   recorded_at: Sun, 12 Apr 2015 00:54:55 GMT
 recorded_with: VCR 2.9.3

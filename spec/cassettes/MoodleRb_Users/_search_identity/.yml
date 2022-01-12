@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: post
-    uri: https://readytech-test.moodlecloud.com/webservice/rest/server.php?moodlewsrestformat=json&wsfunction=core_user_search_identity&wstoken=1475f037b1416286191d08821d21948f
+    uri: https://localhost:8888/moodle28/webservice/rest/server.php?moodlewsrestformat=json&wsfunction=core_user_search_identity&wstoken=60fc9c9415259404795094957e4ab32f
     body:
       encoding: UTF-8
       string: query=moodle_student%40mailinator.com
@@ -46,6 +46,6 @@ http_interactions:
     body:
       encoding: UTF-8
       string: '{"list":[{"id":25,"fullname":"Moodle Student","extrafields":[{"name":"idnumber","value":"MS01"},{"name":"email","value":"moodle_student@mailinator.com"}]}],"maxusersperpage":100,"overflow":false}'
-    http_version: 
+    http_version:
   recorded_at: Tue, 11 Jan 2022 21:28:24 GMT
 recorded_with: VCR 2.9.3

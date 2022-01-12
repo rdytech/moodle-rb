@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: post
-    uri: https://readytech-test.moodlecloud.com/webservice/rest/server.php?moodlewsrestformat=json&wsfunction=core_user_search_identity&wstoken=
+    uri: https://localhost:8888/moodle28/webservice/rest/server.php?moodlewsrestformat=json&wsfunction=core_user_search_identity&wstoken=
     body:
       encoding: UTF-8
       string: query=moodle_student%40mailinator.com
@@ -47,6 +47,6 @@ http_interactions:
       encoding: UTF-8
       string: '{"exception":"moodle_exception","errorcode":"invalidtoken","message":"Invalid
         token - token not found"}'
-    http_version: 
+    http_version:
   recorded_at: Tue, 11 Jan 2022 21:28:24 GMT
 recorded_with: VCR 2.9.3
