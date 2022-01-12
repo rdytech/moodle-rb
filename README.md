@@ -156,6 +156,21 @@ Update a user
 moodle.users.update(:id => 4, :email => 'bwayne@wayneenterprises.com')
 ```
 
+## Development
+
+To start development, spin up a container
+
+```
+docker build -t moodle .
+```
+
+To run the test suite with docker
+
+
+```
+docker run -v $PWD:/app --rm moodle rspec spec
+```
+
 ## Tests
 
 You will need to set some environment variables to create new cassettes. We build using MAMP https://www.mamp.info/en/ so it might be
