@@ -168,7 +168,14 @@ To run the test suite with docker
 
 
 ```
-docker run -v $PWD:/app --rm moodle rspec spec
+docker run -v "$(pwd):/app" --rm moodle rspec spec
+```
+
+Docker compose
+
+```
+docker-compose build
+docker-compose run app bundle exec rspec spec
 ```
 
 ## Tests
