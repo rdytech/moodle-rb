@@ -1,39 +1,39 @@
---- 
+---
 recorded_with: VCR 2.9.3
-http_interactions: 
-- request: 
+http_interactions:
+- request:
     method: post
     uri: http://localhost:8888/moodle28/webservice/rest/server.php?moodlewsrestformat=json&wsfunction=enrol_manual_enrol_users&wstoken=60fc9c9415259404795094957e4ab32f
-    body: 
+    body:
       string: enrolments[0][userid]=3&enrolments[0][courseid]=8&enrolments[0][roleid]=5
     headers: {}
 
-  response: 
-    status: 
+  response:
+    status:
       code: 200
       message: OK
-    headers: 
-      Access-Control-Allow-Origin: 
+    headers:
+      Access-Control-Allow-Origin:
       - "*"
-      X-Powered-By: 
+      X-Powered-By:
       - PHP/5.6.2
-      Content-Type: 
+      Content-Type:
       - application/json
-      Date: 
+      Date:
       - Sun, 12 Apr 2015 01:06:20 GMT
-      Content-Length: 
+      Content-Length:
       - "4"
-      Pragma: 
+      Pragma:
       - no-cache
-      Cache-Control: 
+      Cache-Control:
       - private, must-revalidate, pre-check=0, post-check=0, max-age=0
-      Server: 
+      Server:
       - Apache/2.2.29 (Unix) mod_fastcgi/2.4.6 mod_wsgi/3.4 Python/2.7.8 PHP/5.6.2 mod_ssl/2.2.29 OpenSSL/0.9.8zd DAV/2 mod_perl/2.0.8 Perl/v5.20.0
-      Expires: 
+      Expires:
       - Thu, 01 Jan 1970 00:00:00 GMT
-      Accept-Ranges: 
+      Accept-Ranges:
       - none
-    body: 
+    body:
       string: "null"
-    http_version: 
+    http_version:
   recorded_at: Sun, 12 Apr 2015 01:06:20 GMT

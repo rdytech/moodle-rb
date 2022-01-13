@@ -1,39 +1,39 @@
---- 
+---
 recorded_with: VCR 2.9.3
-http_interactions: 
-- request: 
+http_interactions:
+- request:
     method: post
-    uri: http://localhost:8888/moodle29/webservice/rest/server.php?moodlewsrestformat=json&wsfunction=core_course_create_categories&wstoken=
-    body: 
+    uri: http://localhost:8888/moodle28/webservice/rest/server.php?moodlewsrestformat=json&wsfunction=core_course_create_categories&wstoken=
+    body:
       string: categories[0][description]=&categories[0][parent]=0&categories[0][name]=_&categories[0][idnumber]=
     headers: {}
 
-  response: 
-    status: 
+  response:
+    status:
       code: 200
       message: OK
-    headers: 
-      Accept-Ranges: 
+    headers:
+      Accept-Ranges:
       - none
-      X-Powered-By: 
+      X-Powered-By:
       - PHP/5.6.2
-      Content-Type: 
+      Content-Type:
       - application/json
-      Date: 
+      Date:
       - Mon, 20 Jun 2016 23:22:31 GMT
-      Server: 
+      Server:
       - Apache/2.2.29 (Unix) mod_fastcgi/2.4.6 mod_wsgi/3.4 Python/2.7.8 PHP/5.6.2 mod_ssl/2.2.29 OpenSSL/0.9.8zg DAV/2 mod_perl/2.0.8 Perl/v5.20.0
-      Content-Length: 
+      Content-Length:
       - "103"
-      Expires: 
+      Expires:
       - Thu, 01 Jan 1970 00:00:00 GMT
-      Pragma: 
+      Pragma:
       - no-cache
-      Cache-Control: 
+      Cache-Control:
       - private, must-revalidate, pre-check=0, post-check=0, max-age=0
-      Access-Control-Allow-Origin: 
+      Access-Control-Allow-Origin:
       - "*"
-    body: 
+    body:
       string: "{\"exception\":\"moodle_exception\",\"errorcode\":\"invalidtoken\",\"message\":\"Invalid token - token not found\"}"
-    http_version: 
+    http_version:
   recorded_at: Mon, 20 Jun 2016 23:22:31 GMT

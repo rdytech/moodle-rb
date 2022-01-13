@@ -98,6 +98,22 @@ module MoodleRb
       response.parsed_response['users']
     end
 
+    # Return list of users identities matching the given criteria in their name or other identity fields.
+    # Performs a partial match on id, idnumber, fullname, and email
+    def search_identity(search_query)
+      response = self.class.post(
+        '/webservice/rest/server.php',
+        {
+          :query => query_hash('core_user_search_identity', token),
+          :body => {
+            :query => search_query
+          }
+        }.merge(query_options)
+      )
+      check_for_errors(response)
+      response.parsed_response['list']
+    end
+
     # params must include the id of the user
     # it may include any other standard user attributes:
     # username, password, firstname, lastname, email ...

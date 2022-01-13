@@ -1,0 +1,52 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://localhost:8888/moodle28/webservice/rest/server.php?moodlewsrestformat=json&wsfunction=core_course_get_contents&wstoken=60fc9c9415259404795094957e4ab32f
+    body:
+      encoding: UTF-8
+      string: courseid=5
+    headers: {}
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Accept-Ranges:
+      - bytes
+      - none
+      Access-Control-Allow-Origin:
+      - "*"
+      Age:
+      - '0'
+      Cache-Control:
+      - private, must-revalidate, pre-check=0, post-check=0, max-age=0
+      Content-Type:
+      - application/json
+      Date:
+      - Wed, 12 Jan 2022 00:08:36 GMT
+      Expires:
+      - Thu, 01 Jan 1970 00:00:00 GMT
+      Pragma:
+      - no-cache
+      Server:
+      - Moodle
+      X-Cache:
+      - MISS
+      X-Clacks-Overhead:
+      - GNU Terry Pratchett
+      X-Ec2-Instance-Id:
+      - i-0afd4744d7a60c5d7
+      X-Powered-By:
+      - Moodle Ninjas
+      Content-Length:
+      - '938'
+      Connection:
+      - keep-alive
+    body:
+      encoding: UTF-8
+      string: '[{"id":19,"name":"General","visible":1,"summary":"","summaryformat":1,"section":0,"hiddenbynumsections":0,"uservisible":true,"modules":[{"id":21,"url":"https:\/\/localhost:8888/moodle28\/mod\/assign\/view.php?id=21","name":"An
+        assignment","instance":1,"contextid":64,"visible":1,"uservisible":true,"visibleoncoursepage":1,"modicon":"https:\/\/localhost:8888/moodle28\/theme\/image.php\/_s\/boost\/assign\/1628139500\/icon","modname":"assign","modplural":"Assignments","availability":null,"indent":0,"onclick":"","afterlink":null,"customdata":"{\"duedate\":\"1631541600\",\"allowsubmissionsfromdate\":\"1630936800\"}","noviewlink":false,"completion":1,"completiondata":{"state":0,"timecompleted":0,"overrideby":null,"valueused":false,"hascompletion":true,"isautomatic":false,"istrackeduser":true,"uservisible":true,"details":[]},"dates":[{"label":"Opened:","timestamp":1630936800},{"label":"Due:","timestamp":1631541600}]}]}]'
+    http_version:
+  recorded_at: Wed, 12 Jan 2022 00:08:03 GMT
+recorded_with: VCR 2.9.3

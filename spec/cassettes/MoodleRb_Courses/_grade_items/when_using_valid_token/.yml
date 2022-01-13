@@ -1,0 +1,56 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://localhost:8888/moodle28/webservice/rest/server.php?moodlewsrestformat=json&wsfunction=gradereport_user_get_grade_items&wstoken=60fc9c9415259404795094957e4ab32f
+    body:
+      encoding: UTF-8
+      string: courseid=5&userid=0&groupid=0
+    headers: {}
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Accept-Ranges:
+      - bytes
+      - none
+      Access-Control-Allow-Origin:
+      - "*"
+      Age:
+      - '0'
+      Cache-Control:
+      - private, must-revalidate, pre-check=0, post-check=0, max-age=0
+      Content-Type:
+      - application/json
+      Date:
+      - Wed, 12 Jan 2022 00:08:37 GMT
+      Expires:
+      - Thu, 01 Jan 1970 00:00:00 GMT
+      Pragma:
+      - no-cache
+      Server:
+      - Moodle
+      X-Cache:
+      - MISS
+      X-Clacks-Overhead:
+      - GNU Terry Pratchett
+      X-Ec2-Instance-Id:
+      - i-08adafc8cf93e6451
+      X-Powered-By:
+      - Moodle Ninjas
+      Content-Length:
+      - '1245'
+      Connection:
+      - keep-alive
+    body:
+      encoding: UTF-8
+      string: '{"usergrades":[{"courseid":5,"courseidnumber":"1234","userid":4,"userfullname":"API
+        User","useridnumber":"","maxdepth":2,"gradeitems":[{"id":7,"itemname":"An
+        assignment","itemtype":"mod","itemmodule":"assign","iteminstance":1,"itemnumber":0,"idnumber":"","categoryid":5,"outcomeid":null,"scaleid":null,"locked":false,"cmid":21,"weightraw":1,"weightformatted":"100.00
+        %","graderaw":50,"gradedatesubmitted":null,"gradedategraded":1633307813,"gradehiddenbydate":false,"gradeneedsupdate":false,"gradeishidden":false,"gradeislocked":false,"gradeisoverridden":true,"gradeformatted":"50.00","grademin":0,"grademax":100,"rangeformatted":"0&ndash;100","percentageformatted":"50.00
+        %","feedback":"","feedbackformat":0},{"id":6,"itemname":null,"itemtype":"course","itemmodule":null,"iteminstance":5,"itemnumber":null,"idnumber":null,"categoryid":null,"outcomeid":null,"scaleid":null,"locked":false,"graderaw":60,"gradedatesubmitted":null,"gradedategraded":1633307813,"gradehiddenbydate":false,"gradeneedsupdate":false,"gradeishidden":false,"gradeislocked":false,"gradeisoverridden":true,"gradeformatted":"60.00","grademin":0,"grademax":100,"rangeformatted":"0&ndash;100","percentageformatted":"60.00
+        %","feedback":null,"feedbackformat":0}]}],"warnings":[]}'
+    http_version:
+  recorded_at: Wed, 12 Jan 2022 00:08:03 GMT
+recorded_with: VCR 2.9.3

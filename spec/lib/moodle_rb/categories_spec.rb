@@ -1,12 +1,12 @@
 require 'spec_helper'
 
 describe MoodleRb::Categories do
-  let(:url) { ENV['MOODLE_URL'] || 'localhost' }
-  let(:token) { ENV['MOODLE_TOKEN'] || '' }
+  let(:url) { ENV['MOODLE_URL'] || 'localhost:8888/moodle28' }
+  let(:token) { ENV['MOODLE_TOKEN'] || '60fc9c9415259404795094957e4ab32f' }
   let(:category_moodle_rb) { MoodleRb.new(token, url).categories }
 
   describe '#index', :vcr => {
-    :match_requests_on => [:body, :headers], :record => :once
+    :match_requests_on => [:body, :path], :record => :once
   } do
     let(:result) { category_moodle_rb.index }
 
@@ -27,7 +27,7 @@ describe MoodleRb::Categories do
   end
 
   describe '#create', :vcr => {
-    :match_requests_on => [:headers], :record => :once
+    :match_requests_on => [:path], :record => :once
   } do
     let(:params) do
       {
@@ -60,7 +60,7 @@ describe MoodleRb::Categories do
   end
 
   describe '#show', :vcr => {
-    :match_requests_on => [:headers], :record => :once
+    :match_requests_on => [:path], :record => :once
   } do
     let(:id) { 1 }
     let(:result) { category_moodle_rb.show(id) }
@@ -82,7 +82,7 @@ describe MoodleRb::Categories do
   end
 
   describe '#destroy', :vcr => {
-    :match_requests_on => [:headers], :record => :once
+    :match_requests_on => [:path], :record => :once
   } do
     context 'when using valid token' do
       let!(:id) { category_moodle_rb.create(:name => '_')['id'] }

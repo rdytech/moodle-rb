@@ -99,5 +99,49 @@ module MoodleRb
       check_for_errors(response)
       response.parsed_response
     end
+
+    def grade_items(course_id, user_id=0, group_id=0)
+      response = self.class.post(
+        '/webservice/rest/server.php',
+        {
+          :query => query_hash('gradereport_user_get_grade_items', token),
+          :body => {
+            :courseid => course_id,
+            :userid => user_id,
+            :groupid => group_id
+          }
+        }.merge(query_options)
+      )
+      check_for_errors(response)
+      response.parsed_response['usergrades']
+    end
+
+    def contents(course_id)
+      response = self.class.post(
+        '/webservice/rest/server.php',
+        {
+          :query => query_hash('core_course_get_contents', token),
+          :body => {
+            :courseid => course_id
+          }
+        }.merge(query_options)
+      )
+      check_for_errors(response)
+      response.parsed_response[0]
+    end
+
+    def module(course_module_id)
+      response = self.class.post(
+        '/webservice/rest/server.php',
+        {
+          :query => query_hash('core_course_get_course_module', token),
+          :body => {
+            :cmid => course_module_id
+          }
+        }.merge(query_options)
+      )
+      check_for_errors(response)
+      response.parsed_response['cm']
+    end
   end
 end
