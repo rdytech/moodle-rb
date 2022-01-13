@@ -180,9 +180,17 @@ docker-compose run app bundle exec rspec spec
 
 ## Tests
 
+Tests must be written for new lines of code added as part of a pull request and the test suite must pass. If creating new cassettes, consider updating the hardcoded moodle token and url parameters throughout the suite. They can also be configured with environment variables.
+
 You will need to set some environment variables to create new cassettes. We build using MAMP https://www.mamp.info/en/ so it might be
 
 ```
 export MOODLE_URL=http://localhost:8888/moodle29/
 export MOODLE_TOKEN=87b95af2df709fa60b395b5c59a3fc2e
 ```
+
+## Deployment
+
+The gem is automatically published when a new release is created on github. If there is an issue or a new release is required, please contact one of the maintainers
+
+- Jordan Huizenga (jordan.huizenga@readytech.io)
