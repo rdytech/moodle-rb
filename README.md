@@ -1,4 +1,9 @@
 # MoodleRb
+
+[![Build](https://github.com/jobready/moodle-rb/actions/workflows/build.yml/badge.svg)](https://github.com/jobready/moodle-rb/actions/workflows/build.yml) 
+
+[![Gem Version](https://badge.fury.io/rb/moodle_rb.svg)](https://badge.fury.io/rb/moodle_rb)
+
 A Ruby Client for the Moodle REST API.
 
 https://docs.moodle.org/dev/Web_services#Developer_documentation
