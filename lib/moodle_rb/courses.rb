@@ -42,7 +42,9 @@ module MoodleRb
                 :fullname => params[:full_name],
                 :shortname => params[:short_name],
                 :categoryid => params[:parent_category],
-                :idnumber => params[:idnumber]
+                :idnumber => params[:idnumber],
+                :startdate=> params[:start_date],
+                :enddate=> params[:end_date]
               }
             }
           }

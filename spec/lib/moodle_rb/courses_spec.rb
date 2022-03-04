@@ -9,7 +9,9 @@ describe MoodleRb::Courses do
       :full_name => 'Test Course',
       :short_name => 'TestC1',
       :parent_category => 1,
-      :idnumber => 'ExtRef'
+      :idnumber => 'ExtRef',
+      :start_date => 1646312400,
+      :end_date => 1646398800
     }
   end
 

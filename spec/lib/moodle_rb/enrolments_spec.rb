@@ -11,7 +11,9 @@ describe MoodleRb::Enrolments do
     let(:params) do
       {
         :user_id => 3,
-        :course_id => 8
+        :course_id => 8,
+        :time_start => 1646312400,
+        :time_end => 1646398800
       }
     end
     let(:result) { enrolment_moodle_rb.create(params) }
