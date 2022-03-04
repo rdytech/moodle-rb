@@ -30,7 +30,7 @@ module MoodleRb
                 :roleid => params[:role_id] || STUDENT_ROLE_ID,
                 :timestart=> params[:time_start],
                 :timeend=> params[:time_end]
-              }
+              }.select {|k, v| v }
             }
           }
         }.merge(query_options)

@@ -45,7 +45,7 @@ module MoodleRb
                 :idnumber => params[:idnumber],
                 :startdate=> params[:start_date],
                 :enddate=> params[:end_date]
-              }
+              }.select {|k, v| v }
             }
           }
         }.merge(query_options)
