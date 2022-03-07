@@ -43,8 +43,8 @@ module MoodleRb
                 :shortname => params[:short_name],
                 :categoryid => params[:parent_category],
                 :idnumber => params[:idnumber],
-                :startdate=> params[:start_date],
-                :enddate=> params[:end_date]
+                :startdate => params[:start_date],
+                :enddate => params[:end_date]
               }.select {|k, v| v }
             }
           }
