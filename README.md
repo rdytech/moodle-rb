@@ -28,7 +28,9 @@ moodle.courses.create(
   :full_name => 'My Course',
   :short_name => 'MyC',
   :parent_category => 5,
-  :idnumber => 'ExtRef'
+  :idnumber => 'ExtRef',
+  :startdate => 1646312400,
+  :enddate => 1646398800
 )
 ```
 
@@ -101,7 +103,9 @@ Create a teacher enrolment
 moodle.enrolments.create(
   :user_id => user_id,
   :course_id => course_id,
-  :role_id => 3
+  :role_id => 3,
+  :timestart=> 1646312400,
+  :timeend=> 1646398800
 )
 ```
 

@@ -27,8 +27,10 @@ module MoodleRb
               '0' => {
                 :userid => params[:user_id],
                 :courseid => params[:course_id],
-                :roleid => params[:role_id] || STUDENT_ROLE_ID
-              }
+                :roleid => params[:role_id] || STUDENT_ROLE_ID,
+                :timestart => params[:time_start],
+                :timeend => params[:time_end]
+              }.select {|k, v| v }
             }
           }
         }.merge(query_options)
