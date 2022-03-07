@@ -29,8 +29,8 @@ moodle.courses.create(
   :short_name => 'MyC',
   :parent_category => 5,
   :idnumber => 'ExtRef',
-  :startdate=> 1646312400,
-  :enddate=> 1646398800
+  :startdate => 1646312400,
+  :enddate => 1646398800
 )
 ```
 
