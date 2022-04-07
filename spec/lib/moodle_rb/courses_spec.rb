@@ -185,8 +185,8 @@ describe MoodleRb::Courses do
       let(:enrolment) { result.first }
 
       specify do
-        expect(result).to be_a Hash
-        expect(result).to have_key 'modules'
+        expect(result).to be_a Array
+        expect(result[0]).to have_key 'modules'
       end
     end
 

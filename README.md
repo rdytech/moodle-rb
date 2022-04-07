@@ -94,7 +94,9 @@ Create a student enrolment
 ```
 moodle.enrolments.create(
   :user_id => user_id,
-  :course_id => course_id
+  :course_id => course_id,
+  :time_start => 1646312400,
+  :time_end => 1646398800
 )
 ```
 

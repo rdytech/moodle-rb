@@ -129,7 +129,7 @@ module MoodleRb
         }.merge(query_options)
       )
       check_for_errors(response)
-      response.parsed_response[0]
+      response.parsed_response
     end
 
     def module(course_module_id)
