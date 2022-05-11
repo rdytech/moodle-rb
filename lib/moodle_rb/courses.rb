@@ -22,6 +22,21 @@ module MoodleRb
       response.parsed_response
     end
 
+    # Search courses by (name, module, block, tag)
+    def search(criteria_value, criteria_name = 'search')
+      response = self.class.get(
+        '/webservice/rest/server.php',
+        {
+          :query => query_hash('core_course_search_courses', token).merge({
+            :criterianame => criteria_name,
+            :criteriavalue => criteria_value
+          })
+        }.merge(query_options)
+      )
+      check_for_errors(response)
+      response.parsed_response
+    end
+
     # required params:
     # full_name
     # short_name
