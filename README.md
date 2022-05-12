@@ -39,6 +39,11 @@ List all courses
 moodle.courses.index
 ```
 
+Search for a course by name
+```
+moodle.courses.search('My course')
+```
+
 Show a course
 ```
 moodle.courses.show(course_id)

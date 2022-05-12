@@ -36,6 +36,27 @@ describe MoodleRb::Courses do
     end
   end
 
+  describe '#search', :vcr => {
+    :match_requests_on => [:body, :path], :record => :once
+  } do
+    let(:result) { course_moodle_rb.search('My course') }
+
+    specify do
+      expect(result["total"]).to eq 1
+      expect(result["courses"]).to be_a Array
+    end
+
+    context 'when using invalid token' do
+      let(:token) { '' }
+      specify do
+        expect{ course_moodle_rb.search('My course') }.to raise_error(
+          MoodleRb::MoodleError,
+          'Invalid token - token not found'
+        )
+      end
+    end
+  end
+
   describe '#create', :vcr => {
     :match_requests_on => [:path], :record => :once
   } do
