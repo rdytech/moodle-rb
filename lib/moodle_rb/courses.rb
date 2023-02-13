@@ -160,5 +160,23 @@ module MoodleRb
       check_for_errors(response)
       response.parsed_response['cm']
     end
+
+    # required params:
+    # from_course_id: the id of the course we are importing from
+    # to_course_id:   the id of the course we are importing to
+    def core_course_import_course(params)
+      response = self.class.post(
+        '/webservice/rest/server.php',
+        {
+          :query => query_hash('core_course_import_course', token),
+          :body => {
+            :importfrom => params[:from_course_id],
+            :importto => params[:to_course_id]
+          }
+        }.merge(query_options)
+      )
+      check_for_errors(response)
+      response.code == 200 && response.parsed_response.nil?
+    end
   end
 end

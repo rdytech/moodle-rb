@@ -247,4 +247,48 @@ describe MoodleRb::Courses do
       end
     end
   end
+
+  describe '#core_course_import_course', :vcr => {
+    :match_requests_on => [:path], :record => :once
+  } do
+    context 'when using valid token' do
+      let(:params) do
+        {
+          :from_course_id => 467,
+          :to_course_id => 468
+        }
+      end
+      let(:result) { course_moodle_rb.core_course_import_course(params) }
+
+      specify do
+        expect(result).to eq true
+      end
+
+      context 'when using invalid course id' do
+        let(:params) do
+          {
+            :from_course_id => 467,
+            :to_course_id => -1
+          }
+        end
+
+        specify do
+          expect{ course_moodle_rb.core_course_import_course(params) }.to raise_error(
+            MoodleRb::MoodleError,
+            'You are trying to use an invalid course ID'
+          )
+        end
+      end
+    end
+
+    context 'when using invalid token' do
+      let(:token) { '' }
+      specify do
+        expect{ course_moodle_rb.core_course_import_course({}) }.to raise_error(
+          MoodleRb::MoodleError,
+          'Invalid token - token not found'
+        )
+      end
+    end
+  end
 end
