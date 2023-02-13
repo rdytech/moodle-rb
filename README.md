@@ -69,6 +69,14 @@ Get course module
 moodle.courses.module(course_module_id)
 ```
 
+Copy one course to another
+```
+moodle.courses.core_course_import_course(
+  :from_course_id => from_course_id,
+  :to_course_id => to_course_id
+)
+```
+
 ### Categories
 
 Create a category
