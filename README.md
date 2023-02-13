@@ -69,7 +69,7 @@ Get course module
 moodle.courses.module(course_module_id)
 ```
 
-Copy one course to another
+Import course data from a course into another course
 ```
 moodle.courses.core_course_import_course(
   :from_course_id => from_course_id,
